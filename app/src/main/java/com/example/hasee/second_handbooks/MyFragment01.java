@@ -24,7 +24,6 @@ public class MyFragment01 extends Fragment {
 
     private Book[] books = {
             new Book("Android")
-
     };
 
     private List<Book> booksList = new ArrayList<>();
@@ -48,6 +47,7 @@ public class MyFragment01 extends Fragment {
 
         return view;
     }
+
     private void initBooks(){//随机存入数据
         booksList.clear();
         for (int i = 0; i < 80; i++) {

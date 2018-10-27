@@ -6,11 +6,13 @@ public class Book {
 
     public Book (String Bookname){
         this.Bookname = Bookname;
-
-
     }
 
     public String getBookname() {
         return Bookname;
+    }
+
+    public void setBookname(String bookname) {
+        Bookname = bookname;
     }
 }

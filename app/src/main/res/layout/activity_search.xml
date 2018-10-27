@@ -8,23 +8,9 @@
 
 
     <LinearLayout
+        android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <TextView
-            android:textSize="15sp"
-            android:layout_width="60dp"
-            android:layout_height="35dp"
-            android:id="@+id/textview"
-            android:text="@string/search1"
-            android:gravity="center"/>
-
-        <EditText
-            android:layout_weight="1"
-            android:gravity="center"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/editText"
-            android:hint="@string/edittext"/>
 
         <ImageView
             android:layout_marginTop="6dp"
@@ -34,11 +20,32 @@
             app:srcCompat="@android:drawable/ic_menu_search" />
 
 
+        <EditText
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText"
+            android:hint="@string/search_edittext"/>
+
+        <Button
+            android:id="@+id/button"
+            android:background="@color/colorPrimary"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/search_button"/>
+
+
+
     </LinearLayout>
 
-
-
-
+    <TextView
+        android:layout_marginTop="10dp"
+        android:textSize="15sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/search_textview"/>
 
 
 </LinearLayout>

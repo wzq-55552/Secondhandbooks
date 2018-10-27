@@ -57,7 +57,7 @@ public class BookAdapter extends RecyclerView.Adapter <BookAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-
+        Book book = mBookList.get(i);
     }
 
     @Override

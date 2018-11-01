@@ -18,6 +18,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 
 import java.util.ArrayList;
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         tab.addTab(tab.newTab().setText(titles.get(0)));
         tab.addTab(tab.newTab().setText(titles.get(1)));
 
-        MyAdapter adapter = new MyAdapter(getSupportFragmentManager(),titles,data);
+        mVpAdapter adapter = new mVpAdapter(getSupportFragmentManager(),titles,data);
         mVp.setAdapter(adapter);
         //Tab与ViewPager绑定
         tab.setupWithViewPager(mVp);
@@ -74,57 +75,18 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,DemandActivity.class);
+                Intent intent = new Intent(MainActivity.this,AddMsgActivity.class);
                 startActivity(intent);
             }
         });
-    }
-    
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.toolbar,menu);//加载菜单
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.search:
-                Intent intent = new Intent(MainActivity.this,SearchActivity.class);
+        Button search = (Button) findViewById(R.id.main_search);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SearchActivity.class);
                 startActivity(intent);
-                break;
-            default:
-        }
-        return true;
-    }
-}
-
-class MyAdapter extends FragmentPagerAdapter {
-
-    List<String>list;
-    List<Fragment>fragments = new ArrayList<>();
-
-    public MyAdapter(FragmentManager fm, List<String> list, List<Fragment> fragments){
-        super(fm);
-        this.list = list;
-        this.fragments = fragments;
-    }
-
-    @Override
-    public Fragment getItem(int i) {
-        return fragments.get(i);
-    }
-
-    @Override
-    public int getCount() {
-        return fragments.size();
-    }
-
-    @Nullable
-    @Override
-    public CharSequence getPageTitle(int position) {
-        return list.get(position);
+            }
+        });
     }
 }

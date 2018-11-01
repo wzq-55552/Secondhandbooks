@@ -12,6 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.hasee.second_handbooks.BaseClass.ExchangeMessage;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -22,13 +24,13 @@ public class MyFragment01 extends Fragment {
     Context mContext;
 
 
-    private Book[] books = {
-            new Book("Android")
+    private ExchangeMessage[] exchangeMessages = {
+            new ExchangeMessage("Android")
     };
 
-    private List<Book> booksList = new ArrayList<>();
+    private List<ExchangeMessage> booksList = new ArrayList<>();
 
-    private BookAdapter adapter;
+    private ExchangeMeAdapter adapter;
 
     private SwipeRefreshLayout swipeRefreshLayout;
 
@@ -42,7 +44,7 @@ public class MyFragment01 extends Fragment {
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, true);//每一行有1个元素
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new BookAdapter(booksList);
+        adapter = new ExchangeMeAdapter(booksList);
         recyclerView.setAdapter(adapter);
 
         return view;
@@ -52,8 +54,8 @@ public class MyFragment01 extends Fragment {
         booksList.clear();
         for (int i = 0; i < 80; i++) {
             Random random = new Random();
-            int index = random.nextInt(books.length);
-            booksList.add(books[index]);
+            int index = random.nextInt(exchangeMessages.length);
+            booksList.add(exchangeMessages[index]);
         }
     }
 

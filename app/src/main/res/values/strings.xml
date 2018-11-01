@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">易书惠院</string>
+    <string name="right">确定</string>
 
     <string name="search">搜索</string>
     <string name="search1">搜索:</string>
@@ -13,6 +14,14 @@
     <string name="view_4">系统设置</string>
     <string name="view_5">易书记录</string>
     <string name="view_6">点击登录</string>
+    <string name="view_7">个人中心</string>
+    <string name="view_01">用户名</string>
+    <string name="view_02">性别</string>
+    <string name="view_03">学号</string>
+    <string name="view_04">手机号</string>
+    <string name="view_05">账号</string>
+    <string name="view_06">密码</string>
+    <string name="button_01">退出账号</string>
 
 
     <string name="title_activity_login">Sign in</string>

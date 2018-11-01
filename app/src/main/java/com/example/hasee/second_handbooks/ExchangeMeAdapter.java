@@ -8,18 +8,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
+import com.example.hasee.second_handbooks.BaseClass.ExchangeMessage;
 
 import java.util.List;
 
-public class BookAdapter extends RecyclerView.Adapter <BookAdapter.ViewHolder>{
+public class ExchangeMeAdapter extends RecyclerView.Adapter <ExchangeMeAdapter.ViewHolder>{
 
     private Context mConext;
 
-    private List<Book> mBookList;
+    private List<ExchangeMessage> mExchangeMessageList;
 
 
     static class ViewHolder extends RecyclerView.ViewHolder{
@@ -32,8 +30,8 @@ public class BookAdapter extends RecyclerView.Adapter <BookAdapter.ViewHolder>{
         }
     }
 
-    public BookAdapter(List<Book> booksList){
-        mBookList = booksList;
+    public ExchangeMeAdapter(List<ExchangeMessage> booksList){
+        mExchangeMessageList = booksList;
     }
 
     @NonNull
@@ -42,12 +40,12 @@ public class BookAdapter extends RecyclerView.Adapter <BookAdapter.ViewHolder>{
         if (mConext ==null){
             mConext = viewGroup.getContext();
         }
-        View view = LayoutInflater.from(mConext).inflate(R.layout.book_item,viewGroup,false);
+        View view = LayoutInflater.from(mConext).inflate(R.layout.message_item,viewGroup,false);
         final ViewHolder holder = new ViewHolder(view);
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mConext,Book.class);
+                Intent intent = new Intent(mConext,ExchangeMessage.class);
                 mConext.startActivity(intent);
             }
         });
@@ -57,11 +55,11 @@ public class BookAdapter extends RecyclerView.Adapter <BookAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        Book book = mBookList.get(i);
+        ExchangeMessage exchangeMessage = mExchangeMessageList.get(i);
     }
 
     @Override
     public int getItemCount() {
-        return mBookList.size();
+        return mExchangeMessageList.size();
     }
 }

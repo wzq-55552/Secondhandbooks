@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -33,6 +35,24 @@ public class MyFragment02 extends Fragment {
                 startActivity(intent);
             }
         });
-       return view;
+
+        //个人主页
+        TextView textView = (TextView)view.findViewById(R.id.textView);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),UserActivity.class);
+                startActivity(intent);
+            }
+        });
+        ImageView imageView = (ImageView) view.findViewById(R.id.imageView2);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),UserActivity.class);
+                startActivity(intent);
+            }
+        });
+        return view;
     }
 }

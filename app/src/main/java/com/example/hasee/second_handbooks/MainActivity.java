@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);//传入
         ActionBar actionBar = getSupportActionBar();//获得实例，ActionBar实例可以用来代替Toolbar
 
+        //点击悬浮按钮跳转AddMsgActivity
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //搜索按钮监听
         Button search = (Button) findViewById(R.id.main_search);
         search.setOnClickListener(new View.OnClickListener() {
             @Override

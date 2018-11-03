@@ -81,7 +81,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
+            android:textSize="18dp"
             android:text="@string/view_1"/>
 
         <View
@@ -96,23 +96,9 @@
             android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:text="@string/view_5"/>
-
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="2dp"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp"
-            android:background="@color/gray" />
-
-        <TextView
-            android:layout_centerInParent="true"
-            android:layout_gravity="center_horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
+            android:textSize="18dp"
             android:text="@string/view_2"/>
+
         <View
             android:layout_width="wrap_content"
             android:layout_height="2dp"
@@ -125,8 +111,22 @@
             android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
+            android:textSize="18dp"
             android:text="@string/view_3"/>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/gray" />
+
+        <TextView
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:text="@string/view_4"/>
 
         <View
             android:layout_width="wrap_content"
@@ -140,8 +140,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:text="@string/view_4"/>
+            android:textSize="18dp"
+            android:text="@string/view_5"/>
 
         <View
             android:layout_width="wrap_content"

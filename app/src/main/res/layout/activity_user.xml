@@ -37,6 +37,7 @@
 
 
         <ImageView
+            android:contentDescription="@string/view_06"
             android:id="@+id/change_imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

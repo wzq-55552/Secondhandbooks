@@ -8,6 +8,13 @@ import android.support.v4.app.FragmentPagerAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+<<<<<<< HEAD
+=======
+/*
+    mVp监听器
+    放出来，简洁美观
+ */
+>>>>>>> 8d6fd9eb2072023c008cd541c7d407a4cfb0ec9f
 public class mVpAdapter extends FragmentPagerAdapter {
 
     List<String> list;

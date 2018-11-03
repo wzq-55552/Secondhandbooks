@@ -15,7 +15,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< HEAD
         <activity android:name=".MainActivity"
+=======
+        <activity
+            android:name=".MainActivity"
+>>>>>>> 8d6fd9eb2072023c008cd541c7d407a4cfb0ec9f
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,11 +34,18 @@
             android:label="@string/title_activity_login" />
         <activity android:name=".SearchActivity" />
         <activity android:name=".UserActivity" />
+<<<<<<< HEAD
         <activity android:name=".MyNeedsActivity" />
         <activity android:name=".MyneedsItemActivity" />
         <activity android:name=".AddMsgActivity"
             android:label="发布换书需求信息">
         </activity>
+=======
+        <activity
+            android:name=".AddMsgActivity"
+            android:label="发布换书需求信息"></activity>
+        <activity android:name=".MsgActivity"></activity>
+>>>>>>> 8d6fd9eb2072023c008cd541c7d407a4cfb0ec9f
     </application>
 
 </manifest>

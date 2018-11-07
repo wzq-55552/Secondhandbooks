@@ -5,11 +5,11 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+//个人中心activity
 
 public class UserActivity extends AppCompatActivity {
 
@@ -24,7 +24,7 @@ public class UserActivity extends AppCompatActivity {
         if (actionBar!=null){
             actionBar.setDisplayHomeAsUpEnabled(true);//菜单，默认图片返回图片
         }
-        //登录界面
+        //进入登录界面
         Button loginbutton = (Button)findViewById(R.id.users_button);
         loginbutton.setOnClickListener(new View.OnClickListener() {
             @Override

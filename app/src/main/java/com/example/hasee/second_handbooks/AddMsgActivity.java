@@ -16,7 +16,7 @@ public class AddMsgActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_msg);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.add_msg_toolbar);
         setSupportActionBar(toolbar);
 
         //返回键显示
@@ -26,7 +26,6 @@ public class AddMsgActivity extends AppCompatActivity {
         }
 
         //提交键
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

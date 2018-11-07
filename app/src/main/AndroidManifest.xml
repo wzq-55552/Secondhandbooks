@@ -30,14 +30,19 @@
             android:label="@string/title_activity_login" />
         <activity android:name=".SearchActivity" />
         <activity android:name=".UserActivity"
-            android:label="个人中心"/>
+            android:label="个人中心">
+        </activity>
         <activity android:name=".MyNeedsActivity" />
         <activity android:name=".MyneedsItemActivity" />
+
         <activity android:name=".AddMsgActivity"
             android:label="发布换书需求信息"
             >
         </activity>
-        <activity android:name=".MsgActivity"></activity>
+        <activity android:name=".MsgActivity"
+            android:label="申请信息"
+            >
+        </activity>
     </application>
 
 </manifest>

@@ -12,15 +12,15 @@ public class ExchangeMessage {
     //交换地点
     private String location;
     //交换时间
-    private Date time;
+    private String time;
     //备注
     private String remark;
 
     public ExchangeMessage(String book_name){
-        book_name = this.Book_name;
+        this.Book_name=book_name;
     }
 
-    public Date getTime() {
+    public String getTime() {
         return time;
     }
 
@@ -42,11 +42,11 @@ public class ExchangeMessage {
 
 
     public void setBook_image_id(int book_image_id) {
-        Book_image_id = book_image_id;
+        this.Book_image_id = book_image_id;
     }
 
     public void setBook_name(String book_name) {
-        Book_name = book_name;
+        this.Book_name = book_name;
     }
 
     public void setLocation(String location) {
@@ -57,7 +57,7 @@ public class ExchangeMessage {
         this.remark = remark;
     }
 
-    public void setTime(Date time) {
+    public void setTime(String time) {
         this.time = time;
     }
 }

@@ -24,15 +24,14 @@
                 android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
                 app:layout_scrollFlags="scroll|enterAlways">
-                <Button
+               <Button
                     android:id="@+id/main_search"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:background="@drawable/main_toolbar"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
+                    android:layout_marginRight="27dp"
                     android:paddingLeft="10dp"
                     android:drawableLeft="@android:drawable/ic_menu_search"
                     android:drawablePadding="-45dp"/>
@@ -41,7 +40,7 @@
         </android.support.design.widget.AppBarLayout>
 
 
-        <include layout="@layout/content_tab"/>
+        <include layout="@layout/content_tab" />
 
         <!--悬浮按钮-->
         <android.support.design.widget.FloatingActionButton
@@ -57,5 +56,13 @@
             />
 
     </android.support.design.widget.CoordinatorLayout>
+
+    <android.support.design.widget.NavigationView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/na_view"
+        android:layout_gravity = "start"
+        app:menu="@menu/nav_menu"
+        />
 
 </android.support.v4.widget.DrawerLayout>

@@ -1,9 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray"
+    tools:context=".UserActivity"
     >
 
     <android.support.v7.widget.Toolbar
@@ -12,8 +15,9 @@
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:layout_scrollFlags="scroll|enterAlways"
         />
-
 
     <LinearLayout
         android:orientation="vertical"
@@ -37,7 +41,7 @@
 
 
         <ImageView
-            android:contentDescription="@string/view_06"
+            android:contentDescription="图片"
             android:id="@+id/change_imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,7 +49,7 @@
             android:layout_marginStart="-17dp"
             android:layout_marginBottom="0dp"
             android:layout_toEndOf="@+id/users_icon_image"
-            app:srcCompat="@android:drawable/ic_menu_camera" />
+            app:srcCompat="@android:drawable/ic_menu_gallery" />
 
     </RelativeLayout>
 

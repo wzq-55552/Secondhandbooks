@@ -19,19 +19,14 @@ public class AddMsgActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-<<<<<<< HEAD
-=======
         //返回键显示
->>>>>>> 8d6fd9eb2072023c008cd541c7d407a4cfb0ec9f
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-<<<<<<< HEAD
-=======
         //提交键
->>>>>>> 8d6fd9eb2072023c008cd541c7d407a4cfb0ec9f
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,11 +40,7 @@ public class AddMsgActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-<<<<<<< HEAD
-            case android.R.id.home:
-=======
             case android.R.id.home://返回键功能
->>>>>>> 8d6fd9eb2072023c008cd541c7d407a4cfb0ec9f
                 Intent intent = new Intent(AddMsgActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();

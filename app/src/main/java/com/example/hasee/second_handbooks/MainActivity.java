@@ -87,6 +87,8 @@ public class MainActivity extends AppCompatActivity {
         //滑动菜单的实现
         navView.setCheckedItem(R.id.nav_1);//默认选中
         navView.setItemIconTintList(null);
+
+        //字体颜色
         int[][] states = new int[][]{
 
                 new int[]{android.R.attr.state_activated}, // enabled

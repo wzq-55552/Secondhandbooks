@@ -5,5 +5,14 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <!--主屏幕显示-->
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+
+        <include layout="@layout/content_fragment_tab" />
+
+
+    </android.support.design.widget.CoordinatorLayout>
 </LinearLayout>

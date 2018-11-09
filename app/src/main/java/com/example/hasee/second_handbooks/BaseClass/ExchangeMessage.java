@@ -12,15 +12,19 @@ public class ExchangeMessage {
     //交换地点
     private String location;
     //交换时间
-    private Date time;
+    private String time;//后期改为Date
     //备注
     private String remark;
 
-    public ExchangeMessage(String book_name){
+    //暂定的构造函数
+    public ExchangeMessage(String book_name,String time,String location,String remark){
         book_name = this.Book_name;
+        time = this.time;
+        location = this.location;
+        remark = this.remark;
     }
 
-    public Date getTime() {
+    public String getTime() {
         return time;
     }
 
@@ -57,7 +61,7 @@ public class ExchangeMessage {
         this.remark = remark;
     }
 
-    public void setTime(Date time) {
+    public void setTime(String time) {
         this.time = time;
     }
 }

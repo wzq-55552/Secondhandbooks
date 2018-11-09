@@ -1,64 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="4dp">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="100dp">
+    android:layout_height="wrap_content">
 
 
-    <view
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/gray"
         />
 
-    <RelativeLayout
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:layout_margin="10dp"
-            android:id="@+id/Book_img"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="书名" />
 
         <TextView
+            android:layout_marginLeft="10dp"
             android:id="@+id/Book_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/Book_img"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="120dp"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/Change_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/Book_name"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="60dp"
-            android:layout_marginBottom="50dp"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/Change_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/Change_time"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="30dp"
-            android:text="TextView" />
+             />
 
 
-    </RelativeLayout>
+     </LinearLayout>
 
-    <view
+        <RelativeLayout
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:text="时间" />
+
+            <TextView
+                android:layout_toRightOf="@id/time"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/Change_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+
+            <TextView
+                android:id="@+id/location"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:text="地点" />
+
+            <TextView
+                android:layout_toRightOf="@id/location"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/Change_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:textColor="@color/colorPrimary"
+                android:layout_gravity="right"
+                android:text="查看详情"
+                android:layout_marginRight="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            </LinearLayout>
+
+
+    </LinearLayout>
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/gray"
         />
 
 </LinearLayout>
+
+    </android.support.v7.widget.CardView>

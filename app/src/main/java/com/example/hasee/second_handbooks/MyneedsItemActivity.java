@@ -1,29 +1,51 @@
 package com.example.hasee.second_handbooks;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.hasee.second_handbooks.BaseClass.ExchangeMessage;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 
-//MyneedsActivity点击后进入的页面
+//Myneeds里面点击后进入的页面
 //确定交换
+
 public class MyneedsItemActivity extends AppCompatActivity {
 
 
+    private ExchangeMessage[] Messages = {
+            new ExchangeMessage("第一行代码","11月09日11点",
+                    "旭日楼","本人吴，该书作者郭霖，570页，第二版，学编程安卓入门的第一书"),
+            new ExchangeMessage("了不起的盖兹比","11月10日17点",
+                    "少康楼","作者菲兹杰拉德，238页，很新的，我还没看过，可能适合小孩看的吧"),
+            new ExchangeMessage("瓦尔登湖","11月11日20点",
+                    "南苑宿舍","作者大卫-梭罗，280页，语语惊人，字字闪光，动我衷肠。到了夜深人静的时候，万籁俱寂之时，此书清澄见底。有多少人懂梭罗，就有多少人懂生活"),
+    };
+
     private List<ExchangeMessage> exchangeMessagesList = new ArrayList<>();
 
-    private MyneedsMessageAdapter adapter;
+    private MyneedsMessageItemAdapter adapter;
 
     private SwipeRefreshLayout swipeRefreshLayout;
 
@@ -31,26 +53,54 @@ public class MyneedsItemActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_myneeds_item);
+        setContentView(R.layout.activity_myneedsitem);
+        //final Intent intent = getIntent();
+        //String MessageBookName = intent.getStringExtra(MESSAGE_BOOKNAME);
+        //String MessageTime = intent.getStringExtra(MESSAGE_TIME);
+        //String MessageLocation = intent.getStringExtra(MESSAGE_LOCATION);
+        //String MessageRemark = intent.getStringExtra(MESSAGE_REMARK);
+
+
+        Toolbar toolbar = (Toolbar)findViewById(R.id.myneeds_fragment_toolbar);
+        setSupportActionBar(toolbar);//获得ToolBar实例
         ActionBar actionBar = getSupportActionBar();
         if (actionBar!=null){
             actionBar.setDisplayHomeAsUpEnabled(true);//菜单，默认图片返回图片
         }
 
 
-
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.myneeds_recyclerview);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.myneedsitem_fragment_recyclerview);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        MyneedsMessageAdapter adapter = new MyneedsMessageAdapter(exchangeMessagesList);
+        adapter = new MyneedsMessageItemAdapter(exchangeMessagesList);
         recyclerView.setAdapter(adapter);
 
 
-        Button button = (Button) findViewById(R.id.myneedsitem_button);
+        Button button = (Button) findViewById(R.id.myneedsitem_fragment_button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //实现交换
+                //实现交换功能
+                Snackbar.make(v,"确定交换？",Snackbar.LENGTH_SHORT)
+                        .setAction("确定", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                               //实现方法
+                            }
+                        }).show();
+            }
+        });
+
+        //初始化数据
+        initMessages();
+
+        //刷新
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.myneedsitem_fragment_swipe_refresh);
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);//进度条颜色
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refreshMessages();
             }
         });
     }
@@ -69,7 +119,11 @@ public class MyneedsItemActivity extends AppCompatActivity {
 
     private void initMessages(){//随机存入数据
         exchangeMessagesList.clear();
-
+        for (int i = 0; i < 20; i++) {
+            Random random = new Random();
+            int index = random.nextInt(Messages.length);
+            exchangeMessagesList.add(Messages[index]);
+        }
     }
 
 
@@ -83,10 +137,9 @@ public class MyneedsItemActivity extends AppCompatActivity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                MyneedsItemActivity.this.runOnUiThread(new Runnable() {//切换为主线程
+                runOnUiThread(new Runnable() {//切换为主线程
                     @Override
                     public void run() {
-                        //初始数据
                         initMessages();
                         adapter.notifyDataSetChanged();
                         swipeRefreshLayout.setRefreshing(false);
@@ -95,4 +148,6 @@ public class MyneedsItemActivity extends AppCompatActivity {
             }
         }).start();
     }
+
+
 }

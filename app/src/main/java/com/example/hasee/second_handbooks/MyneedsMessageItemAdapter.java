@@ -3,17 +3,22 @@ package com.example.hasee.second_handbooks;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.hasee.second_handbooks.BaseClass.ExchangeMessage;
 
 import java.util.List;
 
-public class ExchangeMeAdapter extends RecyclerView.Adapter <ExchangeMeAdapter.ViewHolder>{
+
+//MyneedsMessageItemAdapter
+
+public class MyneedsMessageItemAdapter extends RecyclerView.Adapter <MyneedsMessageItemAdapter.ViewHolder>{
+
 
     private Context mConext;
 
@@ -21,16 +26,25 @@ public class ExchangeMeAdapter extends RecyclerView.Adapter <ExchangeMeAdapter.V
 
 
     static class ViewHolder extends RecyclerView.ViewHolder{
-        CardView cardView;
 
+        View Messagesview;
+
+        TextView Book_name;
+
+        TextView time;
+
+        TextView location;
 
         public ViewHolder(View view){
             super(view);
-            cardView = (CardView) view;
+            Messagesview = view;
+            Book_name = (TextView)view.findViewById(R.id.myneedsitem_bookname);
+            time = (TextView)view.findViewById(R.id.myneedsitem_time);
+            location = (TextView)view.findViewById(R.id.myneedsitem_location);
         }
     }
 
-    public ExchangeMeAdapter(List<ExchangeMessage> MessagesList){
+    public MyneedsMessageItemAdapter(List<ExchangeMessage> MessagesList){
         mExchangeMessageList = MessagesList;
     }
 
@@ -40,12 +54,12 @@ public class ExchangeMeAdapter extends RecyclerView.Adapter <ExchangeMeAdapter.V
         if (mConext ==null){
             mConext = viewGroup.getContext();
         }
-        View view = LayoutInflater.from(mConext).inflate(R.layout.message_item,viewGroup,false);
+        View view = LayoutInflater.from(mConext).inflate(R.layout.myneedsitem_item,viewGroup,false);
         final ViewHolder holder = new ViewHolder(view);
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
+        holder.Messagesview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mConext,ExchangeMessage.class);
+                Intent intent = new Intent(mConext,MyneedsItemFragment.class);
                 mConext.startActivity(intent);
             }
         });
@@ -56,6 +70,9 @@ public class ExchangeMeAdapter extends RecyclerView.Adapter <ExchangeMeAdapter.V
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         ExchangeMessage exchangeMessage = mExchangeMessageList.get(i);
+        viewHolder.Book_name.setText(exchangeMessage.getBook_name());
+        viewHolder.time.setText(exchangeMessage.getTime().toString());
+        viewHolder.location.setText(exchangeMessage.getLocation());
     }
 
     @Override

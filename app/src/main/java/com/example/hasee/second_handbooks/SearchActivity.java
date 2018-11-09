@@ -18,7 +18,6 @@ public class SearchActivity extends AppCompatActivity {
         //保存，搜索提示显示
         EditText editText = (EditText)findViewById(R.id.editText);
 
-
         //确定搜索
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
         imageView.setOnClickListener(new View.OnClickListener() {

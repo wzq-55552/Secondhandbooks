@@ -1,130 +1,117 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray"
-    >
+    tools:context=".UserActivity"
+    android:background="@color/gray">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/users_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="?attr/colorPrimary"
         />
 
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    >
 
     <RelativeLayout
-        android:background="@color/colorPrimary"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:orientation="horizontal">
+
+            <!--将图片圆形化,头部-->
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/users_icon_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/head" />
+
+
+            <ImageView
+                android:id="@+id/change_imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/users_icon_image"
+                android:layout_marginStart="-20dp"
+                android:layout_toEndOf="@+id/users_icon_image"
+                app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+        </RelativeLayout>
+
+
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:orientation="horizontal">
+        android:layout_height="1dp" />
 
-        <!--将图片圆形化,头部-->
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/users_icon_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_centerInParent="true"
-            android:src="@drawable/head" />
-
-
-        <ImageView
-            android:id="@+id/change_imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/users_icon_image"
-            android:layout_marginStart="-17dp"
-            android:layout_marginBottom="0dp"
-            android:layout_toEndOf="@+id/users_icon_image"
-            app:srcCompat="@android:drawable/ic_menu_camera" />
-
-    </RelativeLayout>
-
-        <view
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/gray"
+    <include layout="@layout/myview01"
+            android:id="@+id/users_myview01"
             />
 
-        <include layout="@layout/myview01"
-            android:id="@+id/users_myview01"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
 
-        <view
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/gray"
-            />
 
-        <include layout="@layout/myview02"
+    <include layout="@layout/myview02"
             android:id="@+id/users_myview02"/>
-        <view
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/gray"
-            />
 
-        <include layout="@layout/myview03"
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+
+    <include layout="@layout/myview03"
             android:id="@+id/users_myview03"/>
 
-        <view
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/gray"
-            />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
 
-        <include layout="@layout/myview04"
+
+    <include layout="@layout/myview04"
             android:id="@+id/users_myview04"/>
-        <view
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/gray"
-            />
 
-        <include layout="@layout/myview05"
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <include layout="@layout/myview05"
             android:id="@+id/users_myview05"/>
 
-        <view
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/gray"
-            />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
 
-        <include layout="@layout/myview06"
+
+    <include layout="@layout/myview06"
             android:id="@+id/users_myview06"/>
 
-        <view
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:background="@color/gray"
-            />
 
+</LinearLayout>
 
-        <Button
-            android:background="@color/white"
-            android:id="@+id/users_button"
-            android:textColor="@color/colorPrimary"
-            android:textStyle="bold"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="@string/button_01" />
-        <view
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/gray"
-            />
-
-
-
-    </LinearLayout>
-
+    <Button
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:id="@+id/users_button"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/button_01" />
 
 </LinearLayout>

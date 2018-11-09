@@ -1,53 +1,58 @@
 package com.example.hasee.second_handbooks;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.MenuItem;
 
 import com.example.hasee.second_handbooks.BaseClass.ExchangeMessage;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
-
-public class MyFragment01 extends Fragment {
-
-    Context mContext;
-
-
-    private ExchangeMessage[] exchangeMessages = {
-            new ExchangeMessage("Android")
-    };
+//我的需求点击进去的页面
+public class MyNeedsActivity extends AppCompatActivity {
 
     private List<ExchangeMessage> exchangeMessagesList = new ArrayList<>();
 
-    private ExchangeMeAdapter adapter;
+    private MyneedsMessageAdapter adapter;
 
     private SwipeRefreshLayout swipeRefreshLayout;
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment01, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_my_needs);
 
-        initMessages();
+        //初始化数据
 
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, true);//每一行有1个元素
+
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar!=null){
+            actionBar.setDisplayHomeAsUpEnabled(true);//菜单，默认图片返回图片
+        }
+
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.myneeds_recyclerview);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new ExchangeMeAdapter(exchangeMessagesList);
+        MyneedsMessageAdapter adapter = new MyneedsMessageAdapter(exchangeMessagesList);
         recyclerView.setAdapter(adapter);
+    }
 
-        return view;
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home://点击了返回，结束该活动，返回上一个活动
+                finish();
+                return true;
+            default:
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void initMessages(){//随机存入数据
@@ -66,7 +71,7 @@ public class MyFragment01 extends Fragment {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                getActivity().runOnUiThread(new Runnable() {//切换为主线程
+                MyNeedsActivity.this.runOnUiThread(new Runnable() {//切换为主线程
                     @Override
                     public void run() {
                         //初始数据
@@ -81,6 +86,3 @@ public class MyFragment01 extends Fragment {
 
 
 }
-
-
-

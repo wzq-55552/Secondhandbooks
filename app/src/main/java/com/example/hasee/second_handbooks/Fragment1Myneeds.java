@@ -16,21 +16,14 @@ import com.example.hasee.second_handbooks.BaseClass.ExchangeMessage;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 
-public class MyFragment01 extends Fragment {
+public class Fragment1Myneeds extends Fragment {
 
     Context mContext;
 
 
-    private ExchangeMessage[] exchangeMessages = {
-            new ExchangeMessage("Android")
-    };
 
-    private List<ExchangeMessage> exchangeMessagesList = new ArrayList<>();
-
-    private ExchangeMeAdapter adapter;
 
     private SwipeRefreshLayout swipeRefreshLayout;
 
@@ -44,14 +37,12 @@ public class MyFragment01 extends Fragment {
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, true);//每一行有1个元素
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new ExchangeMeAdapter(exchangeMessagesList);
-        recyclerView.setAdapter(adapter);
-
+        //adapter = new ExchangeMeAdapter(exchangeMessagesList);
+        //recyclerView.setAdapter(adapter);
         return view;
     }
 
     private void initMessages(){//随机存入数据
-        exchangeMessagesList.clear();
 
     }
 
@@ -71,7 +62,7 @@ public class MyFragment01 extends Fragment {
                     public void run() {
                         //初始数据
                         initMessages();
-                        adapter.notifyDataSetChanged();
+                        //adapter.notifyDataSetChanged();
                         swipeRefreshLayout.setRefreshing(false);
                     }
                 });

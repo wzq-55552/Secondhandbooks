@@ -5,14 +5,14 @@
     <string name="search">搜索</string>
     <string name="search1">搜索:</string>
     <string name="search_edittext">搜索想要交换的书</string>
-    <string name="search_textview">搜索纪录</string>
+    <string name="search_textview">搜索记录</string>
     <string name="search_button">取消</string>
 
-    <string name="view_1">个人信息</string>
-    <string name="view_2">我的收藏</string>
-    <string name="view_3">吐槽反馈</string>
-    <string name="view_4">系统设置</string>
-    <string name="view_5">易书记录</string>
+    <string name="view_1">我的需求</string>
+    <string name="view_2">我的申请</string>
+    <string name="view_3">交换记录</string>
+    <string name="view_4">吐槽反馈</string>
+    <string name="view_5">系统设置</string>
     <string name="view_6">点击登录</string>
     <string name="view_7">个人中心</string>
     <string name="view_01">用户名</string>
@@ -24,7 +24,15 @@
     <string name="button_01">退出账号</string>
 
 
-    <string name="title_activity_login">Sign in</string>
+    <string name="myneedsitem_view01">书名：</string>
+    <string name="myneedsitem_view02">时间：</string>
+    <string name="myneedsitem_view03">地点：</string>
+    <string name="myneedsitem_view04">备注：</string>
+
+    <string name="button1">交换</string>
+
+
+    <string name="title_activity_login">登录</string>
     <!-- Strings related to login -->
     <string name="prompt_email">账号/手机号</string>
     <string name="prompt_password">密码</string>
@@ -38,5 +46,21 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+
+
+
+    <!--nav 主体-->
+    <string name="nav_1">我的收藏</string>
+    <string name="nav_2">易书记录</string>
+    <string name="nav_3">使用详情</string>
+    <string name="nav_4">联系客服</string>
+    <string name="nav_5">系统设置</string>
+
+
+    <!--nav头部-->
+    <string name="header_username">姓名</string>
+    <string name="header_userid">学号++++++++++</string>
+    <string name="header_faithfulness">诚信度：</string>
+    <string name="header_score">五颗星</string>
 
 </resources>

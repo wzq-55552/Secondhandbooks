@@ -31,15 +31,16 @@
         <activity android:name=".SearchActivity" />
         <activity
             android:name=".UserActivity"
-            android:label="个人中心"></activity>
+            android:label="个人中心" />
         <activity android:name=".MyneedsItemActivity" />
         <activity
             android:name=".AddMsgActivity"
-            android:label="发布换书需求信息"></activity>
+            android:label="发布换书需求信息" />
         <activity
             android:name=".MsgActivity"
-            android:label="申请信息"></activity>
-        <activity android:name=".Myneedsitem_itemActivity"></activity>
+            android:label="申请信息" />
+        <activity android:name=".Myneedsitem_itemActivity" />
+        <activity android:name=".user_registration"></activity>
     </application>
 
 </manifest>

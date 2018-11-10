@@ -46,13 +46,13 @@
         <android.support.design.widget.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/fab"
             android:src="@android:drawable/ic_input_add"
             app:backgroundTint="@color/colorPrimary"
             android:layout_gravity="bottom|end"
             android:layout_marginBottom="60dp"
             android:layout_marginRight="16dp"
             android:elevation="8dp"
+            android:onClick="main_fab"
             />
 
     </android.support.design.widget.CoordinatorLayout>

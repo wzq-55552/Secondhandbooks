@@ -62,4 +62,9 @@
     <string name="header_faithfulness">诚信度：</string>
     <string name="header_score">五颗星</string>
 
+    <!--注册-->
+    <string name="enter_number">请输入账号</string>
+    <string name="enter_password">请输入密码</string>
+    <string name="register">注册</string>
+
 </resources>

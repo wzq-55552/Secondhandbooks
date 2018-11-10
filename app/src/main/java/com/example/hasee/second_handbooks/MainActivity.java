@@ -149,21 +149,10 @@ public class MainActivity extends AppCompatActivity {
                     default:
                         break;
                 }
+                mDrawerLayout.closeDrawers();
                 return true;
             }
         });
-
-
-        //点击悬浮按钮跳转AddMsgActivity
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,AddMsgActivity.class);
-                startActivity(intent);
-            }
-        });
-
 
         //搜索按钮监听
         Button search = (Button) findViewById(R.id.main_search);
@@ -187,4 +176,9 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    //点击首页悬浮按钮跳转AddMsgActivity
+    public void main_fab(View view) {
+        Intent intent = new Intent(MainActivity.this,AddMsgActivity.class);
+        startActivity(intent);
+    }
 }

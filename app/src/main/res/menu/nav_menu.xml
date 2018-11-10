@@ -1,6 +1,9 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-<group android:checkableBehavior="single">
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
 
+    <group android:checkableBehavior="single">
     <item
         android:id="@+id/nav_1"
         android:icon="@android:drawable/star_big_on"
@@ -21,12 +24,10 @@
         android:icon="@android:drawable/ic_menu_call"
         android:title="@string/nav_4"
         />
-
     <item
         android:id="@+id/nav_5"
         android:icon="@android:drawable/ic_menu_share"
         android:title="@string/nav_5"
         />
-
-</group>
+    </group>
 </menu>

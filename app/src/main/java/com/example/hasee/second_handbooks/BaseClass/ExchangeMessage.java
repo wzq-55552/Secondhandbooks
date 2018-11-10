@@ -12,12 +12,16 @@ public class ExchangeMessage {
     //交换地点
     private String location;
     //交换时间
-    private String time;
+    private String time;//后期改为Date
     //备注
     private String remark;
 
-    public ExchangeMessage(String book_name){
-        this.Book_name=book_name;
+    //暂定的构造函数
+    public ExchangeMessage(String book_name,String time,String location,String remark){
+        book_name = this.Book_name;
+        time = this.time;
+        location = this.location;
+        remark = this.remark;
     }
 
     public String getTime() {
@@ -42,11 +46,11 @@ public class ExchangeMessage {
 
 
     public void setBook_image_id(int book_image_id) {
-        this.Book_image_id = book_image_id;
+        Book_image_id = book_image_id;
     }
 
     public void setBook_name(String book_name) {
-        this.Book_name = book_name;
+        Book_name = book_name;
     }
 
     public void setLocation(String location) {

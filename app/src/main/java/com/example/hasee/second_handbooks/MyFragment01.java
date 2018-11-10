@@ -25,7 +25,8 @@ public class MyFragment01 extends Fragment {
 
 
     private ExchangeMessage[] exchangeMessages = {
-            new ExchangeMessage("Android")
+            new ExchangeMessage("第一行代码","11月09日11点",
+                    "旭日楼","本人吴，该书作者郭霖，570页，第二版，学编程安卓入门的第一书")
     };
 
     private List<ExchangeMessage> exchangeMessagesList = new ArrayList<>();
@@ -46,7 +47,6 @@ public class MyFragment01 extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         adapter = new ExchangeMeAdapter(exchangeMessagesList);
         recyclerView.setAdapter(adapter);
-
         return view;
     }
 

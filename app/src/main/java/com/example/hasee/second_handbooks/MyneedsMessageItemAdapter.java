@@ -3,11 +3,11 @@ package com.example.hasee.second_handbooks;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.hasee.second_handbooks.BaseClass.ExchangeMessage;
@@ -27,20 +27,21 @@ public class MyneedsMessageItemAdapter extends RecyclerView.Adapter <MyneedsMess
 
     static class ViewHolder extends RecyclerView.ViewHolder{
 
-        View Messagesview;
+        CardView cardView;
+
+        //ImageView Book_img;
 
         TextView Book_name;
 
-        TextView time;
+        TextView Change_time;
 
-        TextView location;
+        TextView Change_location;
 
         public ViewHolder(View view){
             super(view);
-            Messagesview = view;
-            Book_name = (TextView)view.findViewById(R.id.myneedsitem_bookname);
-            time = (TextView)view.findViewById(R.id.myneedsitem_time);
-            location = (TextView)view.findViewById(R.id.myneedsitem_location);
+            cardView = (CardView)view;
+            Book_name = (TextView)view.findViewById(R.id.myneedsitem_fagment_item_Book_name);
+            //Book_img = (ImageView)view.findViewById(R.id.Book_img);
         }
     }
 
@@ -54,12 +55,18 @@ public class MyneedsMessageItemAdapter extends RecyclerView.Adapter <MyneedsMess
         if (mConext ==null){
             mConext = viewGroup.getContext();
         }
-        View view = LayoutInflater.from(mConext).inflate(R.layout.myneedsitem_item,viewGroup,false);
+        View view = LayoutInflater.from(mConext).inflate(R.layout.myneedsitem_fragment_item,viewGroup,false);
         final ViewHolder holder = new ViewHolder(view);
-        holder.Messagesview.setOnClickListener(new View.OnClickListener() {
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mConext,MyneedsItemFragment.class);
+                int position  = holder.getAdapterPosition();
+                ExchangeMessage message = mExchangeMessageList.get(position);
+                Intent intent = new Intent(mConext,Myneedsitem_itemActivity.class);
+                intent.putExtra(Myneedsitem_itemActivity.MESSAGE_BOOKNAME,message.getBook_name());
+                intent.putExtra(Myneedsitem_itemActivity.MESSAGE_TIME,message.getTime());
+                intent.putExtra(Myneedsitem_itemActivity.MESSAGE_LOCATION,message.getLocation());
+                intent.putExtra(Myneedsitem_itemActivity.MESSAGE_REMARK,message.getRemark());
                 mConext.startActivity(intent);
             }
         });
@@ -70,9 +77,8 @@ public class MyneedsMessageItemAdapter extends RecyclerView.Adapter <MyneedsMess
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         ExchangeMessage exchangeMessage = mExchangeMessageList.get(i);
+        //viewHolder.Book_img.setImageResource(exchangeMessage.getBook_image_id());
         viewHolder.Book_name.setText(exchangeMessage.getBook_name());
-        viewHolder.time.setText(exchangeMessage.getTime().toString());
-        viewHolder.location.setText(exchangeMessage.getLocation());
     }
 
     @Override

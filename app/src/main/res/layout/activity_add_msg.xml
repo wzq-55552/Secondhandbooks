@@ -19,7 +19,9 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_add_msg" />
+    <include
+        android:id="@+id/include"
+        layout="@layout/content_add_msg" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -27,6 +29,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="10dp"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        app:backgroundTint="@color/colorPrimary"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="right|bottom"
+        app:srcCompat="@drawable/ic_confirm" />
 
 </android.support.design.widget.CoordinatorLayout>

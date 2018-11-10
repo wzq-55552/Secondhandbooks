@@ -1,7 +1,5 @@
-package com.example.hasee.second_handbooks.BaseClass;
+package com.example.hasee.second_handbooks.db;
 
-
-import java.util.Date;
 
 //交换信息类
 public class ExchangeMessage {

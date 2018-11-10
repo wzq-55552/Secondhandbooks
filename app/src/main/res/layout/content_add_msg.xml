@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="30dp"
-    android:layout_marginRight="30dp"
+    android:layout_marginLeft="@dimen/activity_vertical_margin"
+    android:layout_marginRight="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".AddMsgActivity"
     tools:showIn="@layout/activity_add_msg">
@@ -14,34 +13,38 @@
     <EditText
         android:id="@+id/book_name"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:hint="书名"
-        android:paddingTop="30dp"
-        />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:hint="@string/book_name"
+        android:inputType="text"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/exchange_time"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:hint="交换时间"
-        android:paddingTop="30dp"
-        app:layout_constraintTop_toBottomOf="@+id/book_name"
-        android:drawableRight="@drawable/arrow_right"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:drawableEnd="@drawable/arrow_right"
+        android:hint="@string/exchange_time"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@+id/book_name" />
 
     <EditText
-        android:id="@+id/exchange_location"
+        android:id="@+id/exchange_place"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:hint="交换地点"
-        android:paddingTop="30dp"
-        app:layout_constraintTop_toBottomOf="@id/exchange_time"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:hint="@string/exchange_place"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@id/exchange_time" />
 
     <EditText
         android:id="@+id/exchange_remark"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:hint="备注"
-        android:paddingTop="30dp"
-        app:layout_constraintTop_toBottomOf="@id/exchange_location"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:hint="@string/note"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@id/exchange_place" />
 
 </android.support.constraint.ConstraintLayout>

@@ -88,40 +88,31 @@ public class MainActivity extends AppCompatActivity {
         navView.setCheckedItem(R.id.nav_1);//默认选中
         navView.setItemIconTintList(null);
 
-        //字体颜色
-        int[][] states = new int[][]{
+//        //字体颜色
+//        int[][] states = new int[][]{
+//
+//                new int[]{android.R.attr.state_activated}, // enabled
+//                new int[]{android.R.attr.state_active}, // disabled
+//                new int[]{android.R.attr.state_checked}, // unchecked
+//                new int[]{android.R.attr.state_focused}, // pressed
+//                new int[]{android.R.attr.state_enabled}, // enabled
+//                new int[]{-android.R.attr.state_enabled}, // disabled
+//                new int[]{-android.R.attr.state_checked}, // unchecked
+//                new int[]{android.R.attr.state_pressed}  // pressed
+//        };
+//        int[] colors = new int[]{
+//                Color.BLACK,
+//                Color.GRAY,
+//                Color.GRAY,
+//                Color.GRAY,
+//                Color.BLACK,
+//                Color.BLACK,
+//                Color.BLACK,
+//                Color.GRAY
+//        };
+//        ColorStateList colorStateList = new ColorStateList(states,colors);
+//        navView.setItemTextColor(colorStateList);
 
-                new int[]{android.R.attr.state_activated}, // enabled
-                new int[]{android.R.attr.state_active}, // disabled
-                new int[]{android.R.attr.state_checked}, // unchecked
-                new int[]{android.R.attr.state_focused}, // pressed
-                new int[]{android.R.attr.state_enabled}, // enabled
-                new int[]{-android.R.attr.state_enabled}, // disabled
-                new int[]{-android.R.attr.state_checked}, // unchecked
-                new int[]{android.R.attr.state_pressed}  // pressed
-        };
-        int[] colors = new int[]{
-                Color.BLACK,
-                Color.GRAY,
-                Color.GRAY,
-                Color.GRAY,
-                Color.BLACK,
-                Color.BLACK,
-                Color.BLACK,
-                Color.GRAY
-        };
-        ColorStateList colorStateList = new ColorStateList(states,colors);
-        navView.setItemTextColor(colorStateList);
-
-        View headerView = navView.inflateHeaderView(R.layout.nav_header);
-        //点击跳至个人中心
-        headerView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,UserActivity.class);
-                startActivity(intent);
-            }
-        });
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {//监听器，相应逻辑
@@ -179,6 +170,12 @@ public class MainActivity extends AppCompatActivity {
     //点击首页悬浮按钮跳转AddMsgActivity
     public void main_fab(View view) {
         Intent intent = new Intent(MainActivity.this,AddMsgActivity.class);
+        startActivity(intent);
+    }
+
+    //跳转个人中心
+    public void login(View view) {
+        Intent intent = new Intent(MainActivity.this,UserActivity.class);
         startActivity(intent);
     }
 }

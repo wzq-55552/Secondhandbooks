@@ -48,11 +48,11 @@ public class Fragment1Myneeds extends Fragment {
         //初始化数据
         initMessages();
 
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.myneeds_recyclerview);
+        RecyclerView recyclerView1 = (RecyclerView) view.findViewById(R.id.myneeds_recyclerview);
         LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
-        recyclerView.setLayoutManager(layoutManager);
+        recyclerView1.setLayoutManager(layoutManager);
         adapter = new MyneedsMessageAdapter(exchangeMessagesList);
-        recyclerView.setAdapter(adapter);
+        recyclerView1.setAdapter(adapter);
 
         //刷新
         swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.myneeds_swipe_refresh);

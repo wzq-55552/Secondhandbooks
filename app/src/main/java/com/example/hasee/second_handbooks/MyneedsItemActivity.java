@@ -68,12 +68,15 @@ public class MyneedsItemActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);//菜单，默认图片返回图片
         }
 
+        //初始化数据
+        initMessages();
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.myneedsitem_fragment_recyclerview);
+
+        RecyclerView recyclerView2 = (RecyclerView) findViewById(R.id.myneedsitem_fragment_recyclerview);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
+        recyclerView2.setLayoutManager(layoutManager);
         adapter = new MyneedsMessageItemAdapter(exchangeMessagesList);
-        recyclerView.setAdapter(adapter);
+        recyclerView2.setAdapter(adapter);
 
 
         Button button = (Button) findViewById(R.id.myneedsitem_fragment_button);
@@ -91,8 +94,6 @@ public class MyneedsItemActivity extends AppCompatActivity {
             }
         });
 
-        //初始化数据
-        initMessages();
 
         //刷新
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.myneedsitem_fragment_swipe_refresh);

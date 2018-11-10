@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UserActivity"
-    android:background="@color/gray">
+    android:background="#ffffff">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/users_toolbar"
@@ -21,7 +21,6 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
     >
 
     <RelativeLayout

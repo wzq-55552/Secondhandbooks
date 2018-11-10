@@ -149,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
                     default:
                         break;
                 }
+                mDrawerLayout.closeDrawers();
                 return true;
             }
         });

@@ -11,9 +11,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.allenliu.badgeview.BadgeView;
 import com.example.hasee.second_handbooks.APCAdapter;
 import com.example.hasee.second_handbooks.R;
 import com.example.hasee.second_handbooks.db.ExchangeMessage;
+import com.jauker.widget.BadgeView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -90,6 +92,7 @@ public class MyAPCActivity extends AppCompatActivity implements View.OnClickList
         ExchangeMessage message=exchangeMessageList.get(2);
         exchangeMessageList.remove(message);
         exchangeMessageList.add(0,message);
+        BadgeView badgeView=new com.jauker.widget.BadgeView(this);
         adapter.notifyDataSetChanged();
     }
 

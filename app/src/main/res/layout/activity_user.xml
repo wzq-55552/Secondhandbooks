@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UserActivity"
-    android:background="#ffffff">
+    android:background="@color/gray">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/users_toolbar"
@@ -20,14 +20,14 @@
 <LinearLayout
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
+    android:layout_height="wrap_content" >
 
+    <!--头部-->
     <RelativeLayout
             android:background="@color/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="120dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal" >
 
             <!--将图片圆形化,头部-->
             <de.hdodenhof.circleimageview.CircleImageView
@@ -47,70 +47,218 @@
                 android:layout_toEndOf="@+id/users_icon_image"
                 app:srcCompat="@android:drawable/ic_menu_gallery" />
 
-        </RelativeLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <!--用户名-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/view_01"
+            android:textSize="18sp" />
+
+        <TextView
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:text="@string/view_01" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="27dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/arrow_right" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <!--性别-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/view_02"
+            android:textSize="18sp" />
+
+        <TextView
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:text="@string/view_02" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="27dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/arrow_right" />
+
+    </RelativeLayout>
 
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp" />
 
-    <include layout="@layout/myview01"
-            android:id="@+id/users_myview01"
-            />
+    <!--学号-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/view_03"
+        android:textSize="18sp" />
+
+    <TextView
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:text="@string/view_03" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="27dp"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/arrow_right" />
+
+    </RelativeLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp" />
 
+    <!--手机号-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="16dp">
 
-    <include layout="@layout/myview02"
-            android:id="@+id/users_myview02"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/view_04"
+            android:textSize="18sp" />
 
+        <TextView
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:text="@string/view_04" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="27dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/arrow_right" />
+
+    </RelativeLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp" />
 
+    <!--账号-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="16dp">
 
-    <include layout="@layout/myview03"
-            android:id="@+id/users_myview03"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/view_05"
+            android:textSize="18sp" />
+
+        <TextView
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:text="@string/view_05" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="27dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/arrow_right" />
+
+    </RelativeLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp" />
 
-
-    <include layout="@layout/myview04"
-            android:id="@+id/users_myview04"/>
-
-
-    <TextView
+    <!--密码-->
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="1dp" />
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="16dp">
 
-    <include layout="@layout/myview05"
-            android:id="@+id/users_myview05"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/view_06"
+            android:textSize="18sp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="1dp" />
+        <TextView
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:text="@string/view_06" />
 
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="27dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/arrow_right" />
 
-    <include layout="@layout/myview06"
-            android:id="@+id/users_myview06"/>
-
+    </RelativeLayout>
 
 </LinearLayout>
 
     <Button
         android:layout_marginTop="10dp"
         android:background="@color/white"
-        android:id="@+id/users_button"
         android:textColor="@color/colorPrimary"
         android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:text="@string/button_01" />
+        android:text="@string/button_01"
+        android:onClick="go_login"/>
 
 </LinearLayout>

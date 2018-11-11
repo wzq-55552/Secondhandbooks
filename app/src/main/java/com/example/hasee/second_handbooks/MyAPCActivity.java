@@ -1,4 +1,4 @@
-package com.example.hasee.second_handbooks.BaseClass;
+package com.example.hasee.second_handbooks;
 
 import android.content.Context;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.hasee.second_handbooks.APCAdapter;
 import com.example.hasee.second_handbooks.R;
+import com.example.hasee.second_handbooks.db.ExchangeMessage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,18 +47,22 @@ public class MyAPCActivity extends AppCompatActivity implements View.OnClickList
                 refreshAPC();
             }
         });
+        MsgSetTop();
     }
 
     //初始化列表数据
     private void init(){
-        for(int i=0;i<20;i++)
-        {
-            ExchangeMessage a=new ExchangeMessage("例子1");
-            a.setBook_image_id(R.drawable.head);
-            a.setLocation("54321");
-            a.setTime("大约在冬季");
-            exchangeMessageList.add(a);
-        }
+        ExchangeMessage a=new ExchangeMessage("例子1","54321","大约在冬季","没有");
+        a.setBook_image_id(R.drawable.head);
+        exchangeMessageList.add(a);
+
+        ExchangeMessage b=new ExchangeMessage("例子2","54321","大约在冬季","没有");
+        b.setBook_image_id(R.drawable.head);
+        exchangeMessageList.add(b);
+
+        ExchangeMessage c=new ExchangeMessage("例子3","54321","大约在冬季","没有");
+        c.setBook_image_id(R.drawable.head);
+        exchangeMessageList.add(c);
     }
 
     private void refreshAPC(){
@@ -78,6 +83,14 @@ public class MyAPCActivity extends AppCompatActivity implements View.OnClickList
                 });
             }
         }).start();
+    }
+
+    //消息置顶
+    public void MsgSetTop(){
+        ExchangeMessage message=exchangeMessageList.get(2);
+        exchangeMessageList.remove(message);
+        exchangeMessageList.add(0,message);
+        adapter.notifyDataSetChanged();
     }
 
     @Override

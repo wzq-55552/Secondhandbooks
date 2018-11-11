@@ -11,9 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.hasee.second_handbooks.BaseClass.ExchangeMessage;
-import com.example.hasee.second_handbooks.BaseClass.MyAPCActivity;
+
+import com.example.hasee.second_handbooks.db.ExchangeMessage;
 
 import java.io.InputStream;
 import java.util.List;

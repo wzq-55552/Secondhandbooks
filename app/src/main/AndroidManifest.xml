@@ -40,7 +40,13 @@
             android:name=".MsgActivity"
             android:label="申请信息" />
         <activity android:name=".Myneedsitem_itemActivity" />
-        <activity android:name=".user_registration"></activity>
+        <activity
+            android:name=".user_registration"
+            android:label="注册"/>
+        <activity
+            android:name=".forget_password"
+            android:label="找回密码">
+        </activity>
     </application>
 
 </manifest>

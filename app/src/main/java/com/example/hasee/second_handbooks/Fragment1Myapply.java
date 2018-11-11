@@ -12,11 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.hasee.second_handbooks.BaseClass.ExchangeMessage;
-
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class Fragment1Myapply extends Fragment {
 

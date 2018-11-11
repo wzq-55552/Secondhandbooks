@@ -25,24 +25,24 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/myneedsitem_fragment_recyclerview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
-
-    </android.support.v4.widget.SwipeRefreshLayout>
+        </android.support.v4.widget.SwipeRefreshLayout>
 
     <Button
-        android:layout_margin="10dp"
+        android:layout_marginBottom="24dp"
         android:layout_gravity="center_horizontal|bottom"
         android:id="@+id/myneedsitem_fragment_button"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:textColor="@color/white"
         android:background="@color/colorPrimary"
         android:text="@string/button1" />
 
     </android.support.design.widget.CoordinatorLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/myneedsitem_fragment_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 </LinearLayout>

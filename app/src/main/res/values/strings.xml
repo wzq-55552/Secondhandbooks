@@ -67,4 +67,10 @@
     <string name="enter_password">请输入密码</string>
     <string name="register">注册</string>
 
+    <!--发布换书需求信息-->
+    <string name="book_name">书名</string>
+    <string name="exchange_time">交换时间</string>
+    <string name="exchange_place">交换地点</string>
+    <string name="note">备注</string>
+
 </resources>

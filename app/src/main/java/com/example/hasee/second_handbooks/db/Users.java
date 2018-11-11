@@ -1,4 +1,4 @@
-package com.example.hasee.second_handbooks.BaseClass;
+package com.example.hasee.second_handbooks.db;
 
 /*
 用户信息类

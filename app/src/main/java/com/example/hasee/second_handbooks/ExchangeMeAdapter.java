@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.hasee.second_handbooks.BaseClass.ExchangeMessage;
+import com.example.hasee.second_handbooks.db.ExchangeMessage;
 
 import java.util.List;
 

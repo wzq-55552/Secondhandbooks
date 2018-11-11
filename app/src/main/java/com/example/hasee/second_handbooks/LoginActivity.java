@@ -104,23 +104,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             }
         });
 
-
-        //忘记密码，用户注册
-        TextView textView1 = (TextView)findViewById(R.id.login_textview1);
-        textView1.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-        TextView textView2 = (TextView)findViewById(R.id.login_textview1);
-        textView2.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
     }
@@ -393,6 +376,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     //跳转注册页面
     public void user_registration(View view) {
         Intent intent = new Intent(LoginActivity.this, user_registration.class);
+        startActivity(intent);
+        finish();
+    }
+
+    //跳转忘记密码页面
+    public void forget_password(View view) {
+        Intent intent = new Intent(LoginActivity.this, forget_password.class);
         startActivity(intent);
         finish();
     }

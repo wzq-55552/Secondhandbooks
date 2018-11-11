@@ -13,7 +13,6 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 
 import java.io.File;
 
@@ -28,11 +27,12 @@ public class UserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
 
+//        返回键显示
         Toolbar toolbar = (Toolbar)findViewById(R.id.users_toolbar);
-        setSupportActionBar(toolbar);//获得ToolBar实例
+        setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar!=null){
-            actionBar.setDisplayHomeAsUpEnabled(true);//菜单，默认图片返回图片
+            actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
         //点击头像进入手机图库
@@ -59,21 +59,12 @@ public class UserActivity extends AppCompatActivity {
             }
         });
 
-        //进入登录界面
-        Button loginbutton = (Button)findViewById(R.id.users_button);
-        loginbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(UserActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case android.R.id.home://点击了返回，结束该活动，返回上一个活动
+            case android.R.id.home://返回键功能
                 finish();
             default:
         }
@@ -103,5 +94,12 @@ public class UserActivity extends AppCompatActivity {
                 Log.d("TAG", "uri:-->"+uri.toString()+", 绝对路径：-->"+path);
             }
         }
+    }
+
+    //跳转登录界面
+    public void go_login(View view) {
+        Intent intent = new Intent(UserActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

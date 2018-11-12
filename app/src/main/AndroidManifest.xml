@@ -18,7 +18,11 @@
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".MessageActivity" />
         <activity
@@ -28,31 +32,35 @@
         <activity
             android:name=".UserActivity"
             android:label="个人中心" />
-        <activity android:name=".MyneedsItemActivity" />
+        <activity
+            android:name=".MyneedsItemActivity"
+            android:label="需求结果" />
         <activity
             android:name=".AddMsgActivity"
             android:label="发布换书需求信息" />
         <activity
             android:name=".MsgActivity"
             android:label="申请信息" />
-        <activity android:name=".Myneedsitem_itemActivity" />
+        <activity
+            android:name=".Myneedsitem_itemActivity"
+            android:label="详情" />
         <activity
             android:name=".user_registration"
-            android:label="注册"/>
+            android:label="注册" />
         <activity
             android:name=".forget_password"
-            android:label="找回密码">
-        </activity>
-
-        <activity android:name=".MyAPCActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".MyAPCItemActivity"/>
+            android:label="找回密码" />
+        <activity
+            android:name=".nav_item_activity.MycollectionActivity"
+            android:label="我的收藏" />
+        <activity
+            android:name=".nav_item_activity.MycollectionitemActivity"
+            android:label="详情" />
+        <activity
+            android:name=".ApplyExchangeActivity"
+            android:label="申请交换" />
+        <activity android:name=".MyApplyItemActicity"
+            android:label="对方书籍"></activity>
     </application>
 
 </manifest>

@@ -25,8 +25,8 @@ import android.widget.Toast;
 public class Myneedsitem_itemActivity extends AppCompatActivity {
 
     public static final String MESSAGE_BOOKNAME  = "book_name";
-    public static final  String MESSAGE_TIME = "time";
-    public static final  String MESSAGE_LOCATION = "location";
+    //public static final  String MESSAGE_TIME = "time";
+    //public static final  String MESSAGE_LOCATION = "location";
     public static final  String MESSAGE_REMARK = "remark";
 
     private FloatingActionButton item_fab;
@@ -39,18 +39,12 @@ public class Myneedsitem_itemActivity extends AppCompatActivity {
 
         final Intent intent1 = getIntent();
         String MessageBookName = intent1.getStringExtra(MESSAGE_BOOKNAME);
-        String MessageTime = intent1.getStringExtra(MESSAGE_TIME);
-        String MessageLocation = intent1.getStringExtra(MESSAGE_LOCATION);
         String MessageRemark = intent1.getStringExtra(MESSAGE_REMARK);
 
         //把值赋予显示出来
         TextView messageContentBookname = (TextView) findViewById(R.id.myneeds_fragment_item_bookname);
-        TextView messageContentTime = (TextView) findViewById(R.id.myneeds_fragment_item_time);
-        TextView messageContentLocation = (TextView) findViewById(R.id.myneeds_fragment_item_location);
         TextView messageContentRemark = (TextView) findViewById(R.id.myneeds_fragment_item_remark);
         messageContentBookname.setText(MessageBookName);
-        messageContentTime.setText(MessageTime);
-        messageContentLocation.setText(MessageLocation);
         messageContentRemark.setText(MessageRemark);
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.myneeds_fragment_item_toolbar);

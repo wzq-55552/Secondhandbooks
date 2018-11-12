@@ -16,10 +16,10 @@ public class ExchangeMessage {
 
     //暂定的构造函数
     public ExchangeMessage(String book_name,String time,String location,String remark){
-        this.Book_name=book_name;
-        this.time=time;
-        this.location=location;
-        this.remark=remark;
+        this.Book_name = book_name;
+        this.time = time;
+        this.location = location ;
+        this.remark = remark;
     }
 
     public String getTime() {
@@ -44,11 +44,11 @@ public class ExchangeMessage {
 
 
     public void setBook_image_id(int book_image_id) {
-        this.Book_image_id = book_image_id;
+        Book_image_id = book_image_id;
     }
 
     public void setBook_name(String book_name) {
-        this.Book_name = book_name;
+        Book_name = book_name;
     }
 
     public void setLocation(String location) {

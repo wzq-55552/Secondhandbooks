@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
@@ -13,6 +17,40 @@
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         />
+
+    <RelativeLayout
+        android:layout_margin="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/myneeds_fragment_item_icon_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/head" />
+
+        <TextView
+            android:padding="3dp"
+            android:id="@+id/myneeds_fragment_item_usersname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/myneeds_fragment_item_icon_image"
+            android:text="对方用户名" />
+
+
+        <TextView
+            android:id="@+id/myneeds_fragment_item_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/myneeds_fragment_item_usersname"
+            android:layout_alignStart="@+id/myneeds_fragment_item_usersname"
+            android:padding="3dp"
+            android:text="对方性别" />
+
+
+
+    </RelativeLayout>
 
 
     <LinearLayout
@@ -44,47 +82,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="时间："
-            />
-
-        <TextView
-            android:id="@+id/myneeds_fragment_item_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_margin="24dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="地点："
-            />
-
-        <TextView
-            android:id="@+id/myneeds_fragment_item_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_margin="24dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:maxLines="5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="备注："
             />
 
@@ -98,9 +95,30 @@
     </LinearLayout>
 
 
+
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_margin="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="图片："
+                />
+
+            <ImageView
+                android:id="@+id/myneeds_fragment_item_img"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                />
+
+
+        </LinearLayout>
 
         <android.support.design.widget.FloatingActionButton
             android:layout_width="wrap_content"
@@ -115,3 +133,4 @@
     </android.support.design.widget.CoordinatorLayout>
 
 </LinearLayout>
+</ScrollView>

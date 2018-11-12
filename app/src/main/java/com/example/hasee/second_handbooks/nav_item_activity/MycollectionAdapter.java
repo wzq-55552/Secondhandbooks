@@ -1,28 +1,24 @@
-package com.example.hasee.second_handbooks;
+package com.example.hasee.second_handbooks.nav_item_activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-
+import com.example.hasee.second_handbooks.MyneedsItemActivity;
+import com.example.hasee.second_handbooks.R;
 import com.example.hasee.second_handbooks.db.ExchangeMessage;
-import com.example.hasee.second_handbooks.nav_item_activity.MycollectionAdapter;
-import com.example.hasee.second_handbooks.nav_item_activity.MycollectionitemActivity;
 
-import java.io.InputStream;
 import java.util.List;
 
-public class APCAdapter extends RecyclerView.Adapter<APCAdapter.ViewHolder> {
+//MycollectionAdapter
+
+public class MycollectionAdapter extends RecyclerView.Adapter <MycollectionAdapter.ViewHolder>{
 
     private Context mConext;
 
@@ -43,14 +39,14 @@ public class APCAdapter extends RecyclerView.Adapter<APCAdapter.ViewHolder> {
         public ViewHolder(View view){
             super(view);
             cardView = (CardView)view;
-            Book_name = (TextView)view.findViewById(R.id.apc_item_Book_name);
+            Book_name = (TextView)view.findViewById(R.id.mycollection_item_Book_name);
             //Book_img = (ImageView)view.findViewById(R.id.Book_img);
-            Change_time = (TextView)view.findViewById(R.id.apc_item_Change_time);
-            Change_location = (TextView)view.findViewById(R.id.apc_item_Change_location);
+            Change_time = (TextView)view.findViewById(R.id.mycollection_item_Change_time);
+            Change_location = (TextView)view.findViewById(R.id.mycollection_item_Change_location);
         }
     }
 
-    public APCAdapter(List<ExchangeMessage> MessagesList){
+    public MycollectionAdapter(List<ExchangeMessage> MessagesList){
         mExchangeMessageList = MessagesList;
     }
 
@@ -60,18 +56,18 @@ public class APCAdapter extends RecyclerView.Adapter<APCAdapter.ViewHolder> {
         if (mConext ==null){
             mConext = viewGroup.getContext();
         }
-        View view = LayoutInflater.from(mConext).inflate(R.layout.apc_item,viewGroup,false);
+        View view = LayoutInflater.from(mConext).inflate(R.layout.mycollection_item,viewGroup,false);
         final ViewHolder holder = new ViewHolder(view);
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int position  = holder.getAdapterPosition();
                 ExchangeMessage message = mExchangeMessageList.get(position);
-                Intent intent = new Intent(mConext,MyApplyItemActicity.class);
-                intent.putExtra("apc_item_name",message.getBook_name());
-                intent.putExtra("apc_item_time",message.getTime());
-                intent.putExtra("apc_item_location",message.getLocation());
-                intent.putExtra("apc_item_remark",message.getRemark());
+                Intent intent = new Intent(mConext,MycollectionitemActivity.class);
+                intent.putExtra(MycollectionitemActivity.MESSAGE_BOOKNAME,message.getBook_name());
+                intent.putExtra(MycollectionitemActivity.MESSAGE_TIME,message.getTime());
+                intent.putExtra(MycollectionitemActivity.MESSAGE_LOCATION,message.getLocation());
+                intent.putExtra(MycollectionitemActivity.MESSAGE_REMARK,message.getRemark());
                 mConext.startActivity(intent);
             }
         });

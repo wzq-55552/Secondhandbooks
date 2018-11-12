@@ -26,6 +26,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 
+import com.example.hasee.second_handbooks.nav_item_activity.MycollectionActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -118,9 +120,9 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {//监听器，相应逻辑
                 switch (menuItem.getItemId()){
                     case R.id.nav_1:
-                        /*Intent intent1 = new Intent(MainActivity.this,InformationActivity.class);
+                        Intent intent1 = new Intent(MainActivity.this,MycollectionActivity.class);
                         startActivity(intent1);
-                        break;*/
+                        break;
                     case R.id.nav_2:
                         /*Intent intent2 = new Intent(MainActivity.this,InformationActivity.class);
                         startActivity(intent2);

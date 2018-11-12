@@ -5,14 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddMsgActivity">
+    tools:context=".ApplyExchangeActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/add_msg_toolbar"
+            android:id="@+id/apply_exchange_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary" />
@@ -21,12 +21,10 @@
 
     <include
         android:id="@+id/include"
-        layout="@layout/content_add_msg" />
-
-
+        layout="@layout/content_apply_exchange" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/apply_exchange_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
@@ -35,8 +33,5 @@
         app:layout_anchor="@+id/include"
         app:layout_anchorGravity="right|bottom"
         app:srcCompat="@drawable/ic_confirm" />
-
-
-
 
 </android.support.design.widget.CoordinatorLayout>

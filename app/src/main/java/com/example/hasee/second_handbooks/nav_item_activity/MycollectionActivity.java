@@ -1,7 +1,5 @@
-package com.example.hasee.second_handbooks;
+package com.example.hasee.second_handbooks.nav_item_activity;
 
-import android.content.Intent;
-import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -10,21 +8,18 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-
+import com.example.hasee.second_handbooks.R;
 import com.example.hasee.second_handbooks.db.ExchangeMessage;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/*
+点击我的收藏跳到的界面
+ */
 
-//Myneeds里面点击后进入的页面
-//确定交换
-
-public class MyneedsItemActivity extends AppCompatActivity {
-
+public class MycollectionActivity extends AppCompatActivity {
 
     private ExchangeMessage[] Messages = {
             new ExchangeMessage("第一行代码","11月09日11点",
@@ -37,7 +32,7 @@ public class MyneedsItemActivity extends AppCompatActivity {
 
     private List<ExchangeMessage> exchangeMessagesList = new ArrayList<>();
 
-    private MyneedsMessageItemAdapter adapter;
+    private MycollectionAdapter adapter;
 
     private SwipeRefreshLayout swipeRefreshLayout;
 
@@ -45,7 +40,7 @@ public class MyneedsItemActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_myneedsitem);
+        setContentView(R.layout.activity_mycollection);
         //final Intent intent = getIntent();
         //String MessageBookName = intent.getStringExtra(MESSAGE_BOOKNAME);
         //String MessageTime = intent.getStringExtra(MESSAGE_TIME);
@@ -53,7 +48,7 @@ public class MyneedsItemActivity extends AppCompatActivity {
         //String MessageRemark = intent.getStringExtra(MESSAGE_REMARK);
 
 
-        Toolbar toolbar = (Toolbar)findViewById(R.id.myneeds_fragment_toolbar);
+        Toolbar toolbar = (Toolbar)findViewById(R.id.mycollection_toolbar);
         setSupportActionBar(toolbar);//获得ToolBar实例
         ActionBar actionBar = getSupportActionBar();
         if (actionBar!=null){
@@ -64,41 +59,15 @@ public class MyneedsItemActivity extends AppCompatActivity {
         initMessages();
 
 
-        RecyclerView recyclerView2 = (RecyclerView) findViewById(R.id.myneedsitem_fragment_recyclerview);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.mycollection_recyclerview);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView2.setLayoutManager(layoutManager);
-        adapter = new MyneedsMessageItemAdapter(exchangeMessagesList);
-        recyclerView2.setAdapter(adapter);
-
-
-        Button button1 = (Button) findViewById(R.id.myneedsitem_fragment_button1);
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //实现交换功能
-                Snackbar.make(v,"确定交换？",Snackbar.LENGTH_SHORT)
-                        .setAction("确定", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                               //实现方法
-                            }
-                        }).show();
-            }
-        });
-
-        Button button2 = (Button) findViewById(R.id.myneedsitem_fragment_button2);
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //实现修改发布需求的信息,重新发布
-                Intent intent = new Intent(MyneedsItemActivity.this,AddMsgActivity.class);
-                startActivity(intent);
-            }
-        });
+        recyclerView.setLayoutManager(layoutManager);
+        adapter = new MycollectionAdapter(exchangeMessagesList);
+        recyclerView.setAdapter(adapter);
 
 
         //刷新
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.myneedsitem_fragment_swipe_refresh);
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.mycollection_swipe_refresh);
         swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);//进度条颜色
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -151,6 +120,4 @@ public class MyneedsItemActivity extends AppCompatActivity {
             }
         }).start();
     }
-
-
 }

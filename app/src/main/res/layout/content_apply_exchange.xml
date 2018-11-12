@@ -7,11 +7,11 @@
     android:layout_marginLeft="@dimen/activity_vertical_margin"
     android:layout_marginRight="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".AddMsgActivity"
-    tools:showIn="@layout/activity_add_msg">
+    tools:context=".ApplyExchangeActivity"
+    tools:showIn="@layout/activity_apply_exchange">
 
     <EditText
-        android:id="@+id/book_name"
+        android:id="@+id/apply_exchange_book_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
@@ -19,51 +19,33 @@
         android:inputType="text"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/exchange_time"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:drawableEnd="@drawable/arrow_right"
-        android:hint="@string/exchange_time"
-        android:inputType="text"
-        app:layout_constraintTop_toBottomOf="@+id/book_name" />
 
     <EditText
-        android:id="@+id/exchange_place"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:hint="@string/exchange_place"
-        android:inputType="text"
-        app:layout_constraintTop_toBottomOf="@id/exchange_time" />
-
-    <EditText
-        android:id="@+id/exchange_remark"
+        android:id="@+id/apply_exchange__remark"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
         android:hint="@string/note"
         android:inputType="text"
-        app:layout_constraintTop_toBottomOf="@id/exchange_place" />
+        app:layout_constraintTop_toBottomOf="@id/apply_exchange_book_name" />
 
     <TextView
         android:padding="5dp"
-        android:id="@+id/add_msg_textview"
+        android:id="@+id/apply_exchange_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="图片上传"
         android:textSize="18sp"
         android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@id/exchange_remark"/>
+        app:layout_constraintTop_toBottomOf="@id/apply_exchange__remark"/>
 
     <ImageView
         android:src="@android:drawable/ic_input_add"
         android:background="@drawable/bg_border1"
-        android:id="@+id/exchange_img"
+        android:id="@+id/apply_exchange_img"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:layout_constraintTop_toBottomOf="@id/add_msg_textview"
+        app:layout_constraintTop_toBottomOf="@id/apply_exchange_textview"
         />
 
 </android.support.constraint.ConstraintLayout>

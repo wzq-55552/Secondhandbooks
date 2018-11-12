@@ -64,8 +64,6 @@ public class MyneedsMessageItemAdapter extends RecyclerView.Adapter <MyneedsMess
                 ExchangeMessage message = mExchangeMessageList.get(position);
                 Intent intent = new Intent(mConext,Myneedsitem_itemActivity.class);
                 intent.putExtra(Myneedsitem_itemActivity.MESSAGE_BOOKNAME,message.getBook_name());
-                intent.putExtra(Myneedsitem_itemActivity.MESSAGE_TIME,message.getTime());
-                intent.putExtra(Myneedsitem_itemActivity.MESSAGE_LOCATION,message.getLocation());
                 intent.putExtra(Myneedsitem_itemActivity.MESSAGE_REMARK,message.getRemark());
                 mConext.startActivity(intent);
             }

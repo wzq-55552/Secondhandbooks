@@ -1,6 +1,7 @@
 package com.example.hasee.second_handbooks;
 
 import android.content.Intent;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -9,65 +10,82 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.hasee.second_handbooks.nav_item_activity.MycollectionitemActivity;
 
 
 public class MyApplyItemActicity extends AppCompatActivity {
 
 
-        //判断申请状态碎片显示
-        private int isState=1;
+    //判断申请状态碎片显示
+    private int isState=1;
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.acticity_myapplyitem);
+    public static final String MESSAGE_BOOKNAME2  = "book_name2";
+    public static final  String MESSAGE_TIME2 = "time2";
+    public static final  String MESSAGE_LOCATION2 = "location2";
+    public static final  String MESSAGE_REMARK2 = "remark2";
 
-            //返回键显示
-            Toolbar toolbar = (Toolbar)findViewById(R.id.apc_item_toolbar);
-            setSupportActionBar(toolbar);
-            ActionBar actionBar = getSupportActionBar();
-            if (actionBar!=null){
-                actionBar.setDisplayHomeAsUpEnabled(true);
-            }
+    private Button button;
 
-            TextView apc_item_input_name=(TextView)findViewById(R.id.apc_item_input_name);
-            TextView apc_item_input_location=(TextView)findViewById(R.id.apc_item_input_location);
-            TextView apc_item_input_time=(TextView)findViewById(R.id.apc_item_input_time);
-            TextView apc_item_input_remark=(TextView)findViewById(R.id.apc_item_input_remark);
-            ImageView apc_item_input_image=(ImageView)findViewById(R.id.apc_item_input_image);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.acticity_myapplyitem);
 
-            Intent intent=getIntent();
-            apc_item_input_name.setText(intent.getStringExtra("apc_item_name"));
-            //apc_item_input_image.setImageResource(intent.getIntExtra("apc_item_image",123));
-            apc_item_input_location.setText(intent.getStringExtra("apc_item_location"));
-            apc_item_input_time.setText(intent.getStringExtra("apc_item_time"));
-            apc_item_input_remark.setText(intent.getStringExtra("apc_item_remark"));
+        final Intent intent1 = getIntent();
+        String MessageBookName = intent1.getStringExtra(MESSAGE_BOOKNAME2);
+        String MessageTime = intent1.getStringExtra(MESSAGE_TIME2);
+        String MessageLocation = intent1.getStringExtra(MESSAGE_LOCATION2);
+        String MessageRemark = intent1.getStringExtra(MESSAGE_REMARK2);
 
-            if(isState==1){
-                replaceFragment(new State_1_Fragment());
-            }else if(isState==2){
-                replaceFragment(new State_2_Fragment());
-            }
+        //把值赋予显示出来
+        TextView messageContentBookname = (TextView) findViewById(R.id.myapply_item_bookname);
+        TextView messageContentTime = (TextView) findViewById(R.id.myapply_item_time);
+        TextView messageContentLocation = (TextView) findViewById(R.id.myapply_item_location);
+        TextView messageContentRemark = (TextView) findViewById(R.id.myapply_item_remark);
+        messageContentBookname.setText(MessageBookName);
+        messageContentTime.setText(MessageTime);
+        messageContentLocation.setText(MessageLocation);
+        messageContentRemark.setText(MessageRemark);
 
+        Toolbar toolbar = (Toolbar)findViewById(R.id.myapply_item_toolbar);
+        setSupportActionBar(toolbar);//获得ToolBar实例
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar!=null){
+            actionBar.setDisplayHomeAsUpEnabled(true);//菜单，默认图片返回图片
         }
 
-        private void replaceFragment(Fragment fragment1){
-            FragmentManager fragmentManager=getSupportFragmentManager();
-            FragmentTransaction transaction=fragmentManager.beginTransaction();
-            transaction.replace(R.id.apc_item_state_fragment,fragment1);
-            transaction.commit();
-        }
+        //取消交换按钮
+        button = (Button)findViewById(R.id.myapply_item_button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v,"取消交换？",Snackbar.LENGTH_SHORT)
+                        .setAction("确定", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                //跳到取消交换界面，留言给物主之类
 
-        @Override
-        public boolean onOptionsItemSelected(MenuItem item) {
-            switch (item.getItemId()){
-                case android.R.id.home://返回键功能
-                    finish();
-                default:
+                            }
+                        }).show();
             }
-            return true;
-        }
+        });
 
+
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home://点击了返回，结束该活动，返回上一个活动
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

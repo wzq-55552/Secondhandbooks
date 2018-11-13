@@ -8,8 +8,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.hasee.second_handbooks.db.ExchangeMessage;
+import com.example.hasee.second_handbooks.nav_item_activity.MycollectionAdapter;
+import com.example.hasee.second_handbooks.nav_item_activity.MycollectionitemActivity;
 
 import java.util.List;
 
@@ -19,14 +22,25 @@ public class ExchangeMeAdapter extends RecyclerView.Adapter <ExchangeMeAdapter.V
 
     private List<ExchangeMessage> mExchangeMessageList;
 
-
     static class ViewHolder extends RecyclerView.ViewHolder{
+
         CardView cardView;
 
+        //ImageView Book_img;
+
+        TextView Book_name;
+
+        TextView Change_time;
+
+        TextView Change_location;
 
         public ViewHolder(View view){
             super(view);
-            cardView = (CardView) view;
+            cardView = (CardView)view;
+            Book_name = (TextView)view.findViewById(R.id.message_item_Book_name);
+            //Book_img = (ImageView)view.findViewById(R.id.Book_img);
+            Change_time = (TextView)view.findViewById(R.id.message_item_Change_time);
+            Change_location = (TextView)view.findViewById(R.id.message_item_Change_location);
         }
     }
 
@@ -45,7 +59,13 @@ public class ExchangeMeAdapter extends RecyclerView.Adapter <ExchangeMeAdapter.V
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mConext,ExchangeMessage.class);
+                int position  = holder.getAdapterPosition();
+                ExchangeMessage message = mExchangeMessageList.get(position);
+                Intent intent = new Intent(mConext,MessageActivity.class);
+                intent.putExtra(MessageActivity.MESSAGE_BOOKNAME1,message.getBook_name());
+                intent.putExtra(MessageActivity.MESSAGE_TIME1,message.getTime());
+                intent.putExtra(MessageActivity.MESSAGE_LOCATION1,message.getLocation());
+                intent.putExtra(MessageActivity.MESSAGE_REMARK1,message.getRemark());
                 mConext.startActivity(intent);
             }
         });
@@ -56,6 +76,10 @@ public class ExchangeMeAdapter extends RecyclerView.Adapter <ExchangeMeAdapter.V
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         ExchangeMessage exchangeMessage = mExchangeMessageList.get(i);
+        //viewHolder.Book_img.setImageResource(exchangeMessage.getBook_image_id());
+        viewHolder.Book_name.setText(exchangeMessage.getBook_name());
+        viewHolder.Change_time.setText(exchangeMessage.getTime());
+        viewHolder.Change_location.setText(exchangeMessage.getLocation());
     }
 
     @Override

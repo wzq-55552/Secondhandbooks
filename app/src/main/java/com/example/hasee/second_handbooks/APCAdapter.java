@@ -68,10 +68,10 @@ public class APCAdapter extends RecyclerView.Adapter<APCAdapter.ViewHolder> {
                 int position  = holder.getAdapterPosition();
                 ExchangeMessage message = mExchangeMessageList.get(position);
                 Intent intent = new Intent(mConext,MyApplyItemActicity.class);
-                intent.putExtra("apc_item_name",message.getBook_name());
-                intent.putExtra("apc_item_time",message.getTime());
-                intent.putExtra("apc_item_location",message.getLocation());
-                intent.putExtra("apc_item_remark",message.getRemark());
+                intent.putExtra(MyApplyItemActicity.MESSAGE_BOOKNAME2,message.getBook_name());
+                intent.putExtra(MyApplyItemActicity.MESSAGE_TIME2,message.getTime());
+                intent.putExtra(MyApplyItemActicity.MESSAGE_LOCATION2,message.getLocation());
+                intent.putExtra(MyApplyItemActicity.MESSAGE_REMARK2,message.getRemark());
                 mConext.startActivity(intent);
             }
         });

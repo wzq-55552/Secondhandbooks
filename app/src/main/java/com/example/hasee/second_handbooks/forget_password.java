@@ -1,5 +1,6 @@
 package com.example.hasee.second_handbooks;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,6 +27,8 @@ public class forget_password extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home://返回键功能
+                Intent intent = new Intent(forget_password.this,LoginActivity.class);
+                startActivity(intent);
                 finish();
                 break;
             default:

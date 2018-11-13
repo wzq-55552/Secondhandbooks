@@ -10,7 +10,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/app"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -18,13 +18,9 @@
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTask">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-        <activity android:name=".MessageActivity" />
+        <activity android:name=".MessageActivity"
+            android:label=""/>
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" />
@@ -59,8 +55,15 @@
         <activity
             android:name=".ApplyExchangeActivity"
             android:label="申请交换" />
-        <activity android:name=".MyApplyItemActicity"
-            android:label="对方书籍"></activity>
+        <activity
+            android:name=".MyApplyItemActicity"
+            android:label="对方书籍" />
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

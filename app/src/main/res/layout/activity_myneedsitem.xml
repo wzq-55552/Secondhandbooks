@@ -12,17 +12,15 @@
         android:background="?attr/colorPrimary"
         />
 
-
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/myneedsitem_fragment_swipe_refresh"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            android:id="@+id/myneedsitem_fragment_swipe_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
             <android.support.v7.widget.RecyclerView
@@ -33,28 +31,13 @@
 
         </android.support.v4.widget.SwipeRefreshLayout>
 
-    <Button
-        android:layout_marginLeft="50dp"
-        android:layout_marginBottom="24dp"
-        android:id="@+id/myneedsitem_fragment_button1"
-        android:layout_gravity="bottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:background="@color/colorPrimary"
-        android:text="@string/button1" />
 
-
-        <Button
-            android:layout_marginRight="50dp"
-            android:layout_gravity="bottom|right"
-            android:layout_marginBottom="24dp"
-            android:id="@+id/myneedsitem_fragment_button2"
+        <include
+            layout="@layout/content_myneedsitem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:background="@color/colorPrimary"
-            android:text="修改" />
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="24dp"/>
 
     </android.support.design.widget.CoordinatorLayout>
 

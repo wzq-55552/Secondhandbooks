@@ -65,7 +65,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".account_management"></activity>
+        <activity android:name=".MyExchangeMessageActivity"
+            android:label="我提供的书籍"></activity>
+        <activity android:name=".account_management"
+            android:label="账号管理"></activity>
     </application>
 
 </manifest>

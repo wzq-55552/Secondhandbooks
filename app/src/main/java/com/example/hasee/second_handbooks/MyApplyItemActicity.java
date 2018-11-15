@@ -29,7 +29,8 @@ public class MyApplyItemActicity extends AppCompatActivity {
     public static final  String MESSAGE_LOCATION2 = "location2";
     public static final  String MESSAGE_REMARK2 = "remark2";
 
-    private Button button;
+    private Button button1;
+    private Button button2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +54,8 @@ public class MyApplyItemActicity extends AppCompatActivity {
         messageContentRemark.setText(MessageRemark);
 
         //取消交换按钮
-        button = (Button)findViewById(R.id.myapply_item_button);
-        button.setOnClickListener(new View.OnClickListener() {
+        button1 = (Button)findViewById(R.id.myapply_item_button1);
+        button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Snackbar.make(v,"取消交换？",Snackbar.LENGTH_SHORT)
@@ -65,6 +66,16 @@ public class MyApplyItemActicity extends AppCompatActivity {
 
                             }
                         }).show();
+            }
+        });
+
+        //查看自己交换书籍的按钮
+        button2 = (Button)findViewById(R.id.myapply_item_button2);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MyApplyItemActicity.this,MyExchangeMessageActivity.class);
+                startActivity(intent);
             }
         });
 

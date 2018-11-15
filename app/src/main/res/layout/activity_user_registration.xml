@@ -7,6 +7,7 @@
     tools:context=".user_registration">
 
     <android.support.v7.widget.Toolbar
+        app:title="注册"
         android:id="@+id/register_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

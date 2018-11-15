@@ -12,6 +12,7 @@
 
 
         <android.support.v7.widget.Toolbar
+            app:title="对方书籍"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
@@ -167,15 +168,32 @@
         </LinearLayout>
 
 
+        <RelativeLayout
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         <Button
+            android:layout_marginLeft="50dp"
             android:layout_marginBottom="24dp"
-            android:id="@+id/myapply_item_button"
-            android:layout_gravity="bottom|center_horizontal"
+            android:id="@+id/myapply_item_button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:background="@color/colorPrimary"
             android:text="取消交换" />
+
+            <Button
+                android:layout_marginRight="50dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="24dp"
+                android:id="@+id/myapply_item_button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:background="@color/colorPrimary"
+                android:text="我的书籍" />
+
+        </RelativeLayout>
 
     </LinearLayout>
 </ScrollView>

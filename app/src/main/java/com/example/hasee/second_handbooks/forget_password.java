@@ -18,6 +18,8 @@ public class forget_password extends AppCompatActivity {
 
     //返回键功能
     public void back(View view) {
+        Intent intent = new Intent(forget_password.this,LoginActivity.class);
+        startActivity(intent);
         finish();
     }
 }

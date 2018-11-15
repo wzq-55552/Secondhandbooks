@@ -10,6 +10,7 @@
     android:background="@color/gray">
 
     <android.support.v7.widget.Toolbar
+        app:title="个人中心"
         android:id="@+id/users_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

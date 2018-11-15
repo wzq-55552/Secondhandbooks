@@ -51,6 +51,7 @@ public class MessageActivity extends AppCompatActivity {
         messageContentLocation.setText(MessageLocation);
         messageContentRemark.setText(MessageRemark);
 
+
         //交换按钮
         fab2 = (FloatingActionButton)findViewById(R.id.message_fab2);
         fab2.setOnClickListener(new View.OnClickListener() {
@@ -80,10 +81,13 @@ public class MessageActivity extends AppCompatActivity {
             }
         });
 
+
     }
+
 
     //返回键功能
     public void back(View view) {
         finish();
     }
 }
+

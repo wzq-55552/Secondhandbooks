@@ -61,6 +61,8 @@ public class user_registration extends AppCompatActivity {
 
     //返回键功能
     public void back(View view) {
+        Intent intent = new Intent(user_registration.this,LoginActivity.class);
+        startActivity(intent);
         finish();
     }
 }

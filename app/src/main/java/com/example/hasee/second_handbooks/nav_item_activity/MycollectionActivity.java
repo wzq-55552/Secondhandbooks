@@ -8,6 +8,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+
 import com.example.hasee.second_handbooks.R;
 import com.example.hasee.second_handbooks.db.ExchangeMessage;
 
@@ -119,5 +121,10 @@ public class MycollectionActivity extends AppCompatActivity {
                 });
             }
         }).start();
+    }
+
+    //返回键功能
+    public void back(View view) {
+        finish();
     }
 }

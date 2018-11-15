@@ -53,14 +53,6 @@ public class MyneedsItemActivity extends AppCompatActivity {
         //String MessageLocation = intent.getStringExtra(MESSAGE_LOCATION);
         //String MessageRemark = intent.getStringExtra(MESSAGE_REMARK);
 
-
-        Toolbar toolbar = (Toolbar)findViewById(R.id.myneeds_fragment_toolbar);
-        setSupportActionBar(toolbar);//获得ToolBar实例
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar!=null){
-            actionBar.setDisplayHomeAsUpEnabled(true);//菜单，默认图片返回图片
-        }
-
         //初始化数据
         initMessages();
 
@@ -109,18 +101,6 @@ public class MyneedsItemActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home://点击了返回，结束该活动，返回上一个活动
-                finish();
-                return true;
-            default:
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-
     private void initMessages(){//随机存入数据
         exchangeMessagesList.clear();
         for (int i = 0; i < 20; i++) {
@@ -154,4 +134,7 @@ public class MyneedsItemActivity extends AppCompatActivity {
     }
 
 
+    public void back(View view) {
+        finish();
+    }
 }

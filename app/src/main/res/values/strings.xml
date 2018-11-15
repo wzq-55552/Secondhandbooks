@@ -15,7 +15,8 @@
     <string name="view_5">系统设置</string>
     <string name="view_6">点击登录</string>
     <string name="view_7">个人中心</string>
-    <string name="view_01">用户名</string>
+    <string name="view_01">昵称</string>
+    <string name="view_account_management">账号管理</string>
     <string name="view_02">性别</string>
     <string name="view_03">学号</string>
     <string name="view_04">手机号</string>

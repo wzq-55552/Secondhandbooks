@@ -32,8 +32,9 @@
             <android.support.v7.widget.Toolbar
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:id="@+id/message_toolbar"
-                app:layout_collapseMode="pin"/>
+                app:navigationIcon="?attr/homeAsUpIndicator"
+                app:layout_collapseMode="pin"
+                android:onClick="back"/>
 
 
         </android.support.design.widget.CollapsingToolbarLayout>

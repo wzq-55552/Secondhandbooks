@@ -52,13 +52,6 @@ public class MyApplyItemActicity extends AppCompatActivity {
         messageContentLocation.setText(MessageLocation);
         messageContentRemark.setText(MessageRemark);
 
-        Toolbar toolbar = (Toolbar)findViewById(R.id.myapply_item_toolbar);
-        setSupportActionBar(toolbar);//获得ToolBar实例
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar!=null){
-            actionBar.setDisplayHomeAsUpEnabled(true);//菜单，默认图片返回图片
-        }
-
         //取消交换按钮
         button = (Button)findViewById(R.id.myapply_item_button);
         button.setOnClickListener(new View.OnClickListener() {
@@ -78,14 +71,8 @@ public class MyApplyItemActicity extends AppCompatActivity {
 
     }
 
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home://点击了返回，结束该活动，返回上一个活动
-                finish();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
+    //返回键功能
+    public void back(View view) {
+        finish();
     }
 }

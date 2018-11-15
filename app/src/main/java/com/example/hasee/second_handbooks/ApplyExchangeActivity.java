@@ -20,14 +20,6 @@ public class ApplyExchangeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_apply_exchange);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.apply_exchange_toolbar);
-        setSupportActionBar(toolbar);
-        //返回键显示
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
-
         //提交键
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.apply_exchange_fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -44,14 +36,8 @@ public class ApplyExchangeActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home://返回键功能
-                finish();
-                break;
-            default:
-        }
-        return true;
+    //返回键功能
+    public void back(View view) {
+        finish();
     }
 }

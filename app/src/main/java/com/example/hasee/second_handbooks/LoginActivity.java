@@ -293,7 +293,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mEmailView.setAdapter(adapter);
     }
 
-
     private interface ProfileQuery {
         String[] PROJECTION = {
                 ContactsContract.CommonDataKinds.Email.ADDRESS,
@@ -384,6 +383,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     public void forget_password(View view) {
         Intent intent = new Intent(LoginActivity.this, forget_password.class);
         startActivity(intent);
+        finish();
+    }
+
+    //返回键功能
+    public void back(View view) {
         finish();
     }
 }

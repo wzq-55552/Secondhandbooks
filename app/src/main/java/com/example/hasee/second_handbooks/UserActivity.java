@@ -27,14 +27,6 @@ public class UserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
 
-//        返回键显示
-        Toolbar toolbar = (Toolbar)findViewById(R.id.users_toolbar);
-        setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar!=null){
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
-
         //点击头像进入手机图库
         CircleImageView circleImageView = (CircleImageView) findViewById(R.id.users_icon_image);
         circleImageView.setOnClickListener(new View.OnClickListener() {
@@ -60,17 +52,6 @@ public class UserActivity extends AppCompatActivity {
         });
 
     }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home://返回键功能
-                finish();
-            default:
-        }
-        return true;
-    }
-
 
     //返回图片
     @Override
@@ -100,6 +81,18 @@ public class UserActivity extends AppCompatActivity {
     public void go_login(View view) {
         Intent intent = new Intent(UserActivity.this, LoginActivity.class);
         startActivity(intent);
+        finish();
+    }
+
+    //跳转账号管理
+    public void user_account_management(View view) {
+        Intent intent = new Intent(UserActivity.this, account_management.class);
+        startActivity(intent);
+        finish();
+    }
+
+    //返回键功能
+    public void back(View view) {
         finish();
     }
 }

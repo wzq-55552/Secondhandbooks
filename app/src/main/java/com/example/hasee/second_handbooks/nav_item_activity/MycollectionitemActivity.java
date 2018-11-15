@@ -94,4 +94,9 @@ public class MycollectionitemActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    //返回键功能
+    public void back(View view) {
+        finish();
+    }
 }

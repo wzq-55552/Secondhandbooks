@@ -29,27 +29,6 @@ public class user_registration extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_registration);
 
-        //显示返回键
-        Toolbar toolbar = (Toolbar)findViewById(R.id.register_toolbar);
-        setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
-
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                Intent intent = new Intent(user_registration.this,LoginActivity.class);
-                startActivity(intent);
-                finish();
-                break;
-            default:
-        }
-        return true;
     }
 
     //注册功能(test后端未实现)
@@ -78,5 +57,10 @@ public class user_registration extends AppCompatActivity {
                 }
             }
         }).start();
+    }
+
+    //返回键功能
+    public void back(View view) {
+        finish();
     }
 }

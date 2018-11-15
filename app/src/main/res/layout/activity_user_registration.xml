@@ -10,7 +10,9 @@
         android:id="@+id/register_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary" />
+        android:background="@color/colorPrimary"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        android:onClick="back"/>
 
     <EditText
         android:id="@+id/register_username"
@@ -46,10 +48,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
-        android:background="@color/white"
+        android:background="@color/colorPrimary"
         android:text="@string/register"
         android:onClick="register"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

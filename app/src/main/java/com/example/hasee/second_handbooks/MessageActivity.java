@@ -51,13 +51,6 @@ public class MessageActivity extends AppCompatActivity {
         messageContentLocation.setText(MessageLocation);
         messageContentRemark.setText(MessageRemark);
 
-        Toolbar toolbar = (Toolbar)findViewById(R.id.message_toolbar);
-        setSupportActionBar(toolbar);//获得ToolBar实例
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar!=null){
-            actionBar.setDisplayHomeAsUpEnabled(true);//菜单，默认图片返回图片
-        }
-
         //交换按钮
         fab2 = (FloatingActionButton)findViewById(R.id.message_fab2);
         fab2.setOnClickListener(new View.OnClickListener() {
@@ -87,27 +80,10 @@ public class MessageActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
-
-
-
-
-
-
     }
 
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home://点击了返回，结束该活动，返回上一个活动
-                finish();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
+    //返回键功能
+    public void back(View view) {
+        finish();
     }
 }

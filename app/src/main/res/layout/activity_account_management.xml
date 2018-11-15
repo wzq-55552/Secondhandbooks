@@ -8,6 +8,7 @@
     android:background="@color/gray"
     tools:context=".account_management">
 
+    <!--返回键-->
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,14 +34,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
             android:text="@string/view_05" />
-
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="27dp"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/arrow_right" />
 
     </RelativeLayout>
 
@@ -66,14 +61,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
             android:text="@string/view_03" />
-
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="27dp"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/arrow_right" />
 
     </RelativeLayout>
 
@@ -99,20 +88,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
             android:text="@string/view_04" />
-
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="27dp"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/arrow_right" />
 
     </RelativeLayout>
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="1dp" />
+        android:layout_height="32dp" />
 
     <!--密码-->
     <RelativeLayout
@@ -128,18 +111,12 @@
             android:textSize="18sp" />
 
         <TextView
-            android:textSize="18sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="@dimen/activity_horizontal_margin"
-            android:text="@string/view_06" />
-
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="27dp"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/arrow_right" />
+            android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
+            android:text="修改密码"
+            android:textSize="18sp" />
 
     </RelativeLayout>
 

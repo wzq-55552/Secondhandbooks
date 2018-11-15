@@ -57,13 +57,6 @@ public class MycollectionitemActivity extends AppCompatActivity {
         messageContentLocation.setText(MessageLocation);
         messageContentRemark.setText(MessageRemark);
 
-        Toolbar toolbar = (Toolbar)findViewById(R.id.mycollectionitem_toolbar);
-        setSupportActionBar(toolbar);//获得ToolBar实例
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar!=null){
-            actionBar.setDisplayHomeAsUpEnabled(true);//菜单，默认图片返回图片
-        }
-
         //交换按钮
         button = (Button)findViewById(R.id.mycollectionitem_button);
         button.setOnClickListener(new View.OnClickListener() {
@@ -82,17 +75,6 @@ public class MycollectionitemActivity extends AppCompatActivity {
         });
 
 
-    }
-
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home://点击了返回，结束该活动，返回上一个活动
-                finish();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     //返回键功能

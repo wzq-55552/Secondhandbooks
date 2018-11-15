@@ -16,14 +16,15 @@ import java.util.List;
 
 //MyneedsMessageAdapter
 
-public class MyneedsMessageAdapter extends RecyclerView.Adapter <MyneedsMessageAdapter.ViewHolder>{
+public class MyneedsMessageAdapter extends RecyclerView.Adapter <MyneedsMessageAdapter.ViewHolder> {
+
 
     private Context mConext;
 
     private List<ExchangeMessage> mExchangeMessageList;
 
 
-    static class ViewHolder extends RecyclerView.ViewHolder{
+    static class ViewHolder extends RecyclerView.ViewHolder {
 
         CardView cardView;
 
@@ -35,34 +36,36 @@ public class MyneedsMessageAdapter extends RecyclerView.Adapter <MyneedsMessageA
 
         TextView Change_location;
 
-        public ViewHolder(View view){
+        public ViewHolder(View view) {
             super(view);
-            cardView = (CardView)view;
-            Book_name = (TextView)view.findViewById(R.id.Book_name);
+            cardView = (CardView) view;
+            Book_name = (TextView) view.findViewById(R.id.Book_name);
             //Book_img = (ImageView)view.findViewById(R.id.Book_img);
-            Change_time = (TextView)view.findViewById(R.id.Change_time);
-            Change_location = (TextView)view.findViewById(R.id.Change_location);
+            Change_time = (TextView) view.findViewById(R.id.Change_time);
+            Change_location = (TextView) view.findViewById(R.id.Change_location);
         }
     }
 
-    public MyneedsMessageAdapter(List<ExchangeMessage> MessagesList){
+    public MyneedsMessageAdapter(List<ExchangeMessage> MessagesList) {
         mExchangeMessageList = MessagesList;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        if (mConext ==null){
+        if (mConext == null) {
             mConext = viewGroup.getContext();
         }
-        View view = LayoutInflater.from(mConext).inflate(R.layout.myneedsmessage_item,viewGroup,false);
+
+
+        View view = LayoutInflater.from(mConext).inflate(R.layout.myneedsmessage_item, viewGroup, false);
         final ViewHolder holder = new ViewHolder(view);
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int position  = holder.getAdapterPosition();
+                int position = holder.getAdapterPosition();
                 //ExchangeMessage message = mExchangeMessageList.get(position);
-                Intent intent = new Intent(mConext,MyneedsItemActivity.class);
+                Intent intent = new Intent(mConext, MyneedsItemActivity.class);
                 //intent.putExtra(MyneedsItemActivity.MESSAGE_BOOKNAME,message.getBook_name());
                 //intent.putExtra(MyneedsItemActivity.MESSAGE_TIME,message.getTime());
                 //intent.putExtra(MyneedsItemActivity.MESSAGE_LOCATION,message.getLocation());
@@ -70,21 +73,28 @@ public class MyneedsMessageAdapter extends RecyclerView.Adapter <MyneedsMessageA
                 mConext.startActivity(intent);
             }
         });
+
+
         return holder;
     }
 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        ExchangeMessage exchangeMessage = mExchangeMessageList.get(i);
-        //viewHolder.Book_img.setImageResource(exchangeMessage.getBook_image_id());
-        viewHolder.Book_name.setText(exchangeMessage.getBook_name());
-        viewHolder.Change_time.setText(exchangeMessage.getTime());
-        viewHolder.Change_location.setText(exchangeMessage.getLocation());
+            ExchangeMessage exchangeMessage = mExchangeMessageList.get(i);
+            //viewHolder.Book_img.setImageResource(exchangeMessage.getBook_image_id());
+            viewHolder.Book_name.setText(exchangeMessage.getBook_name());
+            viewHolder.Change_time.setText(exchangeMessage.getTime());
+            viewHolder.Change_location.setText(exchangeMessage.getLocation());
     }
 
     @Override
     public int getItemCount() {
-        return mExchangeMessageList.size();
+            return mExchangeMessageList.size();
     }
+
+
+
 }
+
+

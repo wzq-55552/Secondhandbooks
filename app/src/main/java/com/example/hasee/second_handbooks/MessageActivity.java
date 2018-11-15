@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.hasee.second_handbooks.nav_item_activity.MycollectionitemActivity;
@@ -25,6 +26,9 @@ public class MessageActivity extends AppCompatActivity {
     public static final  String MESSAGE_LOCATION1 = "Location1";
     public static final  String MESSAGE_REMARK1 = "Remark1";
 
+
+    private FloatingActionButton fab2;
+    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +59,8 @@ public class MessageActivity extends AppCompatActivity {
         }
 
         //交换按钮
-        FloatingActionButton fab = (FloatingActionButton)findViewById(R.id.message_fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        fab2 = (FloatingActionButton)findViewById(R.id.message_fab2);
+        fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Snackbar.make(v,"申请本书？",Snackbar.LENGTH_SHORT)
@@ -70,6 +74,28 @@ public class MessageActivity extends AppCompatActivity {
                         }).show();
             }
         });
+
+
+        //收藏按钮
+        fab = (FloatingActionButton)findViewById(R.id.message_fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //收藏点击爱心变红，   数据保存到我的收藏
+                fab.setImageResource(R.drawable.heart02);
+                Toast.makeText(MessageActivity.this,"收藏成功！",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+
+
+
+
+
+
+
 
 
     }

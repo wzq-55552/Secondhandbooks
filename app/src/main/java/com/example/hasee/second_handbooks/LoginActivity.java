@@ -368,6 +368,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     //返回键功能
     public void back(View view) {
+        Intent intent = new Intent(LoginActivity.this, UserActivity.class);
+        startActivity(intent);
         finish();
     }
 }

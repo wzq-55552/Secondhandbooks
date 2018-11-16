@@ -1,31 +1,26 @@
-package com.example.hasee.second_handbooks;
+package com.example.hasee.second_handbooks.nav_item_activity;
 
 import android.content.Intent;
-import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 
+import com.example.hasee.second_handbooks.LoginActivity;
+import com.example.hasee.second_handbooks.MyneedsMessageAdapter;
+import com.example.hasee.second_handbooks.R;
+import com.example.hasee.second_handbooks.UserActivity;
 import com.example.hasee.second_handbooks.db.ExchangeMessage;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+public class RecordActivity extends AppCompatActivity {
 
-//Myneeds里面点击后进入的页面
-//确定交换
-
-public class MyneedsItemActivity extends AppCompatActivity {
-
+    private RecordAdapter adapter;
 
     private ExchangeMessage[] Messages = {
             new ExchangeMessage("第一行代码","11月09日11点",
@@ -38,75 +33,28 @@ public class MyneedsItemActivity extends AppCompatActivity {
 
     private List<ExchangeMessage> exchangeMessagesList = new ArrayList<>();
 
-    private MyneedsMessageItemAdapter adapter;
 
     private SwipeRefreshLayout swipeRefreshLayout;
+
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_myneedsitem);
-        //final Intent intent = getIntent();
-        //String MessageBookName = intent.getStringExtra(MESSAGE_BOOKNAME);
-        //String MessageTime = intent.getStringExtra(MESSAGE_TIME);
-        //String MessageLocation = intent.getStringExtra(MESSAGE_LOCATION);
-        //String MessageRemark = intent.getStringExtra(MESSAGE_REMARK);
+        setContentView(R.layout.activity_record);
 
         //初始化数据
         initMessages();
 
-
-        RecyclerView recyclerView2 = (RecyclerView) findViewById(R.id.myneedsitem_fragment_recyclerview);
+        RecyclerView recyclerView1 = (RecyclerView) findViewById(R.id.record_recyclerview);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView2.setLayoutManager(layoutManager);
-        adapter = new MyneedsMessageItemAdapter(exchangeMessagesList);
-        recyclerView2.setAdapter(adapter);
-
-
-        Button button1 = (Button) findViewById(R.id.myneedsitem_fragment_button1);
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //实现交换功能
-                Snackbar.make(v,"确定交换？",Snackbar.LENGTH_SHORT)
-                        .setAction("确定", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                               //实现方法
-                            }
-                        }).show();
-            }
-        });
-
-        Button button2 = (Button) findViewById(R.id.myneedsitem_fragment_button2);
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //实现修改发布需求的信息,重新发布
-                Intent intent = new Intent(MyneedsItemActivity.this,AddMsgActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        Button button3 = (Button) findViewById(R.id.myneedsitem_fragment_button3);
-        button3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //实现取消发布
-                Snackbar.make(v,"确定取消？",Snackbar.LENGTH_SHORT)
-                        .setAction("确定", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                //实现方法
-                            }
-                        }).show();
-            }
-        });
-
+        recyclerView1.setLayoutManager(layoutManager);
+        adapter = new RecordAdapter(exchangeMessagesList);
+        recyclerView1.setAdapter(adapter);
 
         //刷新
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.myneedsitem_fragment_swipe_refresh);
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.record_swipe_refresh);
         swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);//进度条颜色
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -115,6 +63,9 @@ public class MyneedsItemActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
 
     private void initMessages(){//随机存入数据
         exchangeMessagesList.clear();
@@ -148,8 +99,10 @@ public class MyneedsItemActivity extends AppCompatActivity {
         }).start();
     }
 
-
+    //返回键功能
     public void back(View view) {
         finish();
     }
+
 }
+

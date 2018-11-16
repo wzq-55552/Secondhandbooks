@@ -37,7 +37,7 @@ public class MyFragment02 extends Fragment {
 
         //标题
         titles = new ArrayList<>();
-        titles.add("我的需求");
+        titles.add("我的发布");
         titles.add("我的申请");
 
         //数据源

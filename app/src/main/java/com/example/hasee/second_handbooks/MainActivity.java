@@ -27,6 +27,9 @@ import android.widget.Toast;
 
 
 import com.example.hasee.second_handbooks.nav_item_activity.MycollectionActivity;
+import com.example.hasee.second_handbooks.nav_item_activity.RecordActivity;
+import com.example.hasee.second_handbooks.nav_item_activity.RecordAdapter;
+import com.example.hasee.second_handbooks.nav_item_activity.SystemSetupActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -124,20 +127,19 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent1);
                         break;
                     case R.id.nav_2:
-                        /*Intent intent2 = new Intent(MainActivity.this,InformationActivity.class);
+                        Intent intent2 = new Intent(MainActivity.this,RecordActivity.class);
                         startActivity(intent2);
-                        break;*/
+                        break;
                     case R.id.nav_3:
                         /*Intent intent3 = new Intent(MainActivity.this,InformationActivity.class);
-                        startActivity(intent3);
-                        break;*/
+                        startActivity(intent3);*/
+                        break;
                     case R.id.nav_4:
-                        /*Intent intent4 = new Intent(MainActivity.this,InformationActivity.class);
-                        startActivity(intent4);
-                        break;*/
+                        Toast.makeText(MainActivity.this,"暂无客服",Toast.LENGTH_SHORT).show();
+                        break;
                     case R.id.nav_5:
-                        /*Intent intent5 = new Intent(MainActivity.this,InformationActivity.class);
-                        startActivity(intent5);*/
+                        Intent intent5 = new Intent(MainActivity.this,SystemSetupActivity.class);
+                        startActivity(intent5);
                         break;
                     default:
                         break;

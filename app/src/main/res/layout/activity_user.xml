@@ -73,14 +73,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
             android:text="@string/view_01" />
-
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="27dp"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/arrow_right" />
 
     </RelativeLayout>
 
@@ -106,14 +100,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
             android:text="@string/view_02" />
-
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="27dp"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/arrow_right" />
 
     </RelativeLayout>
 
@@ -131,16 +119,11 @@
         android:onClick="user_account_management">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/view_account_management"
-            android:textSize="18sp" />
-
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="27dp"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/arrow_right" />
+            android:textSize="18sp"
+            android:drawableEnd="@drawable/ic_chevron_right_black_24dp"/>
 
     </RelativeLayout>
 

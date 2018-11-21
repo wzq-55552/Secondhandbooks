@@ -64,14 +64,27 @@
     <string name="header_score">五颗星</string>
 
     <!--注册-->
-    <string name="register_username">请输入账号</string>
-    <string name="register_password">请输入密码</string>
+    <string name="register_username">输入手机号</string>
+    <string name="register_password">输6–20位入密码</string>
+    <string name="input_number">输入学号</string>
+    <string name="input_nickname">输入昵称</string>
     <string name="register">注册</string>
+    <string name="submit">提交</string>
 
     <!--发布换书需求信息-->
     <string name="book_name">书名</string>
     <string name="exchange_time">交换时间</string>
     <string name="exchange_place">交换地点</string>
     <string name="note">备注</string>
+
+    <!--用户信息-->
+    <string name="number">学号</string>
+    <string name="telephone">手机号</string>
+    <string name="nickname">昵称</string>
+    <string name="sex">性别</string>
+    <string name="password">密码</string>
+    <string name="honesty">诚信度</string>
+
+
 
 </resources>

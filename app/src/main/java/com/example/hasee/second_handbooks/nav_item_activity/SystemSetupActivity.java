@@ -20,8 +20,15 @@ public class SystemSetupActivity extends AppCompatActivity {
     public void feedback(View view){
         Intent intent = new Intent(SystemSetupActivity.this,FeedbackActivity.class);
         startActivity(intent);
+        finish();
     }
 
+    //关于我们
+    public void We(View view){
+        Intent intent = new Intent(SystemSetupActivity.this,WeActivity.class);
+        startActivity(intent);
+        finish();
+    }
 
 
     //返回键功能

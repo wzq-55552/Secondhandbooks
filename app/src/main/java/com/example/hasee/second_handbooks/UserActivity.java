@@ -91,6 +91,21 @@ public class UserActivity extends AppCompatActivity {
         finish();
     }
 
+    //跳转修改昵称
+    public void change_name(View view) {
+        Intent intent = new Intent(UserActivity.this, change_nickname.class);
+        startActivity(intent);
+        finish();
+    }
+
+    //跳转修改性别
+    public void change_sex(View view) {
+        Intent intent = new Intent(UserActivity.this, change_sex.class);
+        startActivity(intent);
+        finish();
+    }
+
+
     //返回键功能
     public void back(View view) {
         finish();

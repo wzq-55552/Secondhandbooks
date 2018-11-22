@@ -21,7 +21,7 @@ public class change_sex extends AppCompatActivity {
         finish();
     }
 
-//    性别女
+// 性别女
     public void change_sex_female(View view) {
         Intent intent = new Intent();
         intent.putExtra("sex", "女");

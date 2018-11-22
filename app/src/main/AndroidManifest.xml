@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:icon="@drawable/app"
@@ -30,7 +30,7 @@
             android:label="个人中心" />
         <activity
             android:name=".MyneedsItemActivity"
-            android:label="需求结果" />
+            android:label="对方书籍" />
         <activity
             android:name=".AddMsgActivity"
             android:label="发布换书需求信息" />
@@ -74,7 +74,13 @@
         <activity android:name=".register_perfect_information" />
         <activity android:name=".change_number" />
         <activity android:name=".change_nickname" />
-        <activity android:name=".change_sex"></activity>
+        <activity android:name=".change_sex" />
+        <activity android:name=".nav_item_activity.RecordActivity" />
+        <activity android:name=".nav_item_activity.FeedbackActivity" />
+        <activity android:name=".nav_item_activity.SystemSetupActivity" />
+        <activity android:name=".nav_item_activity.WeActivity" />
+        <activity android:name=".change_phone" />
+        <activity android:name=".change_password"></activity>
     </application>
 
 </manifest>

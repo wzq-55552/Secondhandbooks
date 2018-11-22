@@ -10,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -63,46 +64,12 @@ public class MyneedsItemActivity extends AppCompatActivity {
         adapter = new MyneedsMessageItemAdapter(exchangeMessagesList);
         recyclerView2.setAdapter(adapter);
 
-
-        Button button1 = (Button) findViewById(R.id.myneedsitem_fragment_button1);
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //实现交换功能
-                Snackbar.make(v,"确定交换？",Snackbar.LENGTH_SHORT)
-                        .setAction("确定", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                               //实现方法
-                            }
-                        }).show();
-            }
-        });
-
-        Button button2 = (Button) findViewById(R.id.myneedsitem_fragment_button2);
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //实现修改发布需求的信息,重新发布
-                Intent intent = new Intent(MyneedsItemActivity.this,AddMsgActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        Button button3 = (Button) findViewById(R.id.myneedsitem_fragment_button3);
-        button3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //实现取消发布
-                Snackbar.make(v,"确定取消？",Snackbar.LENGTH_SHORT)
-                        .setAction("确定", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                //实现方法
-                            }
-                        }).show();
-            }
-        });
+        Toolbar toolbar = findViewById(R.id.myneeds_item_toolbar);
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar!=null){
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
 
         //刷新
@@ -148,8 +115,47 @@ public class MyneedsItemActivity extends AppCompatActivity {
         }).start();
     }
 
-
-    public void back(View view) {
-        finish();
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbaritem,menu);
+        return true;
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                finish();
+                break;
+            case R.id.exchange://交换
+                //实现交换功能
+                Snackbar.make(getWindow().getDecorView(),"确定交换？",Snackbar.LENGTH_SHORT)
+                        .setAction("确定", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                //实现方法
+                            }
+                        }).show();
+                break;
+            case R.id.cancel://取消
+                //实现取消发布
+                Snackbar.make(getWindow().getDecorView(),"确定取消？",Snackbar.LENGTH_SHORT)
+                        .setAction("确定", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                //实现方法
+                            }
+                        }).show();
+                break;
+            case R.id.revise://修改
+                Intent intent = new Intent(MyneedsItemActivity.this,AddMsgActivity.class);
+                startActivity(intent);
+                break;
+            default:
+        }
+        return true;
+    }
+
+
+
 }

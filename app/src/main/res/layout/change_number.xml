@@ -14,9 +14,10 @@
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
         app:navigationIcon="?attr/homeAsUpIndicator"
-        onClick="back" />
+        android:onClick="back" />
 
     <EditText
+        android:padding="5dp"
         android:id="@+id/change_number"
         android:layout_width="match_parent"
         android:layout_height="48dp"

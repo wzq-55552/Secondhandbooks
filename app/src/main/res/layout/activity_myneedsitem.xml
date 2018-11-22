@@ -5,16 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+
     <android.support.v7.widget.Toolbar
         app:title="对方书籍"
+        android:id="@+id/myneeds_item_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         app:navigationIcon="?attr/homeAsUpIndicator"
-        android:onClick="back"/>
+        >
 
-    <include layout="@layout/content_myneedsitem"
-        />
+     </android.support.v7.widget.Toolbar>
+
+
 
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/coordinatorLayout"

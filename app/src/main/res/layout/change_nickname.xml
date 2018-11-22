@@ -17,6 +17,7 @@
         android:onClick="back" />
 
     <EditText
+        android:padding="5dp"
         android:id="@+id/change_nickname"
         android:layout_width="match_parent"
         android:layout_height="48dp"

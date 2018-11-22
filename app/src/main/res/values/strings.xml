@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">易书惠院</string>
+    <string name="app_name">易书</string>
     <string name="right">确定</string>
 
     <string name="search">搜索</string>
@@ -89,6 +89,5 @@
     <string name="sex_male">男</string>
     <string name="sex_female">女</string>
     <string name="sex_secrecy">保密</string>
-
 
 </resources>

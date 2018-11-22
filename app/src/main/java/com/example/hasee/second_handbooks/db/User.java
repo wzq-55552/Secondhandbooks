@@ -1,5 +1,7 @@
 package com.example.hasee.second_handbooks.db;
 
+import android.widget.TextView;
+
 /*
 用户信息类
  */
@@ -7,7 +9,7 @@ public class User {
     //学号
     private Long number;
     //手机号
-    private Long telepgone;
+    private Long telephone;
     //昵称
     private String nickname;
     //性别
@@ -15,15 +17,15 @@ public class User {
     //密码
     private String password;
     //诚信度
-    private int honesty;
+    private Long honesty;
 
     public User() {
 
     }
 
-    public User(Long number, Long telepgone, String nickname, String sex, String password, int honesty) {
+    public User(Long number, Long telephone, String nickname, String sex, String password, Long honesty) {
         this.number = number;
-        this.telepgone = telepgone;
+        this.telephone = telephone;
         this.nickname = nickname;
         this.sex = sex;
         this.password = password;
@@ -38,12 +40,12 @@ public class User {
         this.number = number;
     }
 
-    public Long getTelepgone() {
-        return telepgone;
+    public Long getTelephone() {
+        return telephone;
     }
 
-    public void setTelepgone(Long telepgone) {
-        this.telepgone = telepgone;
+    public void setTelephone(Long telephone) {
+        this.telephone = telephone;
     }
 
     public String getNickname() {
@@ -70,12 +72,17 @@ public class User {
         this.password = password;
     }
 
-    public int getHonesty() {
+    public Long getHonesty() {
         return honesty;
     }
 
-    public void setHonesty(int honesty) {
+    public void setHonesty(Long honesty) {
         this.honesty = honesty;
+    }
+
+    public void change_user_information(TextView nickname, TextView sex) {
+        nickname.setText(this.nickname);
+        sex.setText(this.sex);
     }
 }
 

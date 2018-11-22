@@ -14,20 +14,7 @@
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
         app:navigationIcon="?attr/homeAsUpIndicator"
-        android:onClick="back" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/submit"
-            android:onClick="submit"
-            android:textSize="20sp"
-            android:background="@color/colorPrimary"
-            android:textColor="#4DD52B"
-            android:layout_gravity="end"
-            android:layout_marginEnd="16dp"/>
-
-    </android.support.v7.widget.Toolbar>
+        android:onClick="back" />
 
     <EditText
         android:id="@+id/change_nickname"
@@ -38,5 +25,17 @@
         android:hint="@string/input_nickname"
         android:inputType="text"
         android:maxLength="20"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        android:onClick="submit"
+        android:textSize="20sp"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"/>
 
 </LinearLayout>

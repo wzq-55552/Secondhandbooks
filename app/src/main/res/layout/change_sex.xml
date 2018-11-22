@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    tools:context=".change_sex"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:onClick="back"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:title="修改学号" />
+
+    <!--男-->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="@color/white"
+        android:text="@string/sex_male"
+        android:textSize="18sp"
+        android:textAlignment="viewStart"
+        android:onClick="change_sex_male"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <!--女-->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="@color/white"
+        android:text="@string/sex_female"
+        android:textSize="18sp"
+        android:textAlignment="viewStart"
+        android:onClick="change_sex_female"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <!--保密-->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="@color/white"
+        android:text="@string/sex_secrecy"
+        android:textSize="18sp"
+        android:textAlignment="viewStart"
+        android:onClick="change_sex_secrecy"/>
+
+</LinearLayout>

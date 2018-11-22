@@ -19,7 +19,9 @@
     <string name="view_account_management">账号管理</string>
     <string name="view_02">性别</string>
     <string name="view_03">学号</string>
+    <string name="user_number_show">修改学号</string>
     <string name="view_04">手机号</string>
+    <string name="user_telephone_show">修改手机号</string>
     <string name="view_05">账号</string>
     <string name="view_06">密码</string>
     <string name="button_01">退出账号</string>
@@ -84,7 +86,9 @@
     <string name="sex">性别</string>
     <string name="password">密码</string>
     <string name="honesty">诚信度</string>
-
+    <string name="sex_male">男</string>
+    <string name="sex_female">女</string>
+    <string name="sex_secrecy">保密</string>
 
 
 </resources>

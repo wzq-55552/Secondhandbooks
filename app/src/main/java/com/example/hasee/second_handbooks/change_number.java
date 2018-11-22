@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class change_number extends AppCompatActivity {
 
@@ -20,17 +21,22 @@ public class change_number extends AppCompatActivity {
         change_number = (EditText) findViewById(R.id.change_number);
     }
 
+    //获取欲修改的学号给上一个活动
+    public void submit(View view) {
+        String number = change_number.getText().toString();
+        if (number.length() < 13) {
+            Toast.makeText(change_number.this, "学号输入错误",Toast.LENGTH_SHORT).show();
+        } else {
+            Intent intent = new Intent();
+            intent.putExtra("number", number);
+            setResult(RESULT_OK, intent);
+            finish();
+        }
+    }
+
     //返回键功能
     public void back(View view) {
         finish();
     }
 
-    //获取欲修改的学号给上一个活动
-    public void submit(View view) {
-        String number = change_number.getText().toString();
-        Intent intent = new Intent();
-        intent.putExtra("number", number);
-        setResult(RESULT_OK, intent);
-        finish();
-    }
 }

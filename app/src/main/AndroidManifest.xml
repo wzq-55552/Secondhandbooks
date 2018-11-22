@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:icon="@drawable/app"
@@ -40,7 +41,7 @@
             android:name=".Myneedsitem_itemActivity"
             android:label="详情" />
         <activity
-            android:name=".user_registration"
+            android:name=".register"
             android:label="注册" />
         <activity
             android:name=".forget_password"
@@ -70,9 +71,10 @@
         <activity
             android:name=".account_management"
             android:label="账号管理" />
-        <activity android:name=".perfect_information" />
+        <activity android:name=".register_perfect_information" />
         <activity android:name=".change_number" />
-        <activity android:name=".change_nickname"></activity>
+        <activity android:name=".change_nickname" />
+        <activity android:name=".change_sex"></activity>
     </application>
 
 </manifest>

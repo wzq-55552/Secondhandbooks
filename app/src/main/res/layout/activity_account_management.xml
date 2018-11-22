@@ -17,33 +17,6 @@
         app:navigationIcon = "?attr/homeAsUpIndicator"
         android:onClick="back" />
 
-    <!--账号-->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:padding="16dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/view_05"
-            android:textSize="18sp" />
-
-        <TextView
-            android:textSize="18sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
-            android:text="@string/view_05" />
-
-    </RelativeLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="1dp" />
-
     <!--学号-->
     <RelativeLayout
         android:layout_width="match_parent"
@@ -58,12 +31,13 @@
             android:textSize="18sp" />
 
         <TextView
+            android:id="@+id/user_number_show"
             android:textSize="18sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
-            android:text="@string/view_03" />
+            android:text="@string/user_number_show" />
 
     </RelativeLayout>
 
@@ -90,7 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
-            android:text="@string/view_04" />
+            android:text="@string/user_telephone_show" />
 
     </RelativeLayout>
 

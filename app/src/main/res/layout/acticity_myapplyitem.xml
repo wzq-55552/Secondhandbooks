@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
             app:navigationIcon="?attr/homeAsUpIndicator"
-            android:onClick="back"/>
+            android:id="@+id/myapply_item_toolbar"/>
 
         <RelativeLayout
             android:layout_margin="24dp"

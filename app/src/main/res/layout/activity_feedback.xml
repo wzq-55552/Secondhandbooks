@@ -11,9 +11,11 @@
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
         app:navigationIcon = "?attr/homeAsUpIndicator"
-        android:onClick="back" />
+        android:id="@+id/feedback_toolbar"
+        />
 
     <EditText
+        android:id="@+id/feedback_edittext"
         android:gravity="top"
         android:hint="意见反馈（200字内）"
         android:maxLines="5"

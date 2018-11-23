@@ -27,6 +27,13 @@ public class UserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
 
+        Toolbar toolbar = (Toolbar)findViewById(R.id.users_toolbar);
+        setSupportActionBar(toolbar);//获得ToolBar实例
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar!=null){
+            actionBar.setDisplayHomeAsUpEnabled(true);//菜单，默认图片返回图片
+        }
+
         //点击头像进入手机图库
         CircleImageView circleImageView = (CircleImageView) findViewById(R.id.users_icon_image);
         circleImageView.setOnClickListener(new View.OnClickListener() {
@@ -91,8 +98,28 @@ public class UserActivity extends AppCompatActivity {
         finish();
     }
 
-    //返回键功能
-    public void back(View view) {
+    //跳转修改昵称
+    public void change_name(View view) {
+        Intent intent = new Intent(UserActivity.this, change_nickname.class);
+        startActivity(intent);
         finish();
+    }
+
+    //跳转修改性别
+    public void change_sex(View view) {
+        Intent intent = new Intent(UserActivity.this, change_sex.class);
+        startActivity(intent);
+        finish();
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home://点击了返回，结束该活动，返回上一个活动
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

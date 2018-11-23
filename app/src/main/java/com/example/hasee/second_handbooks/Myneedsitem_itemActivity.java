@@ -36,6 +36,13 @@ public class Myneedsitem_itemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_myneedsitem_item);
 
+        Toolbar toolbar = (Toolbar)findViewById(R.id.myneedsitem_item_toolbar);
+        setSupportActionBar(toolbar);//获得ToolBar实例
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar!=null){
+            actionBar.setDisplayHomeAsUpEnabled(true);//菜单，默认图片返回图片
+        }
+
 
         final Intent intent1 = getIntent();
         String MessageBookName = intent1.getStringExtra(MESSAGE_BOOKNAME);
@@ -97,8 +104,13 @@ public class Myneedsitem_itemActivity extends AppCompatActivity {
         }
     }
 
-    //返回键功能
-    public void back(View view) {
-        finish();
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home://点击了返回，结束该活动，返回上一个活动
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

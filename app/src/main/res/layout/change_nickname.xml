@@ -14,9 +14,10 @@
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
         app:navigationIcon="?attr/homeAsUpIndicator"
-        android:onClick="back" />
+        android:id="@+id/change_nickname_toolbar"/>
 
     <EditText
+        android:padding="5dp"
         android:id="@+id/change_nickname"
         android:layout_width="match_parent"
         android:layout_height="48dp"

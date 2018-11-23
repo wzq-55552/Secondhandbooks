@@ -1,20 +1,22 @@
-package com.example.hasee.second_handbooks;
+package com.example.hasee.second_handbooks.nav_item_activity;
 
-import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
-public class MsgActivity extends AppCompatActivity {
+import com.example.hasee.second_handbooks.R;
+
+public class WeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_msg);
+        setContentView(R.layout.activity_we);
 
-        Toolbar toolbar = (Toolbar)findViewById(R.id.msg_toolbar);
+        Toolbar toolbar = (Toolbar)findViewById(R.id.we_toolbar);
         setSupportActionBar(toolbar);//获得ToolBar实例
         ActionBar actionBar = getSupportActionBar();
         if (actionBar!=null){
@@ -31,6 +33,4 @@ public class MsgActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-
 }

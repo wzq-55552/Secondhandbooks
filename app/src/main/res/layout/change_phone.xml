@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".register">
+    tools:context=".change_phone">
 
     <android.support.v7.widget.Toolbar
-        app:title="注册"
-        android:id="@+id/register_toolbar"
+        android:id="@+id/change_phone_toolbar"
+        app:title="修改手机号"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
@@ -25,15 +25,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_toolbar">
+        app:layout_constraintTop_toBottomOf="@+id/change_phone_toolbar">
 
         <!--输入手机号-->
         <EditText
-            android:id="@+id/register_telephone"
+            android:id="@+id/change_telephone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
-            android:hint="@string/register_username"
+            android:layout_marginTop="20dp"
+            android:hint="输入新手机号码"
             android:maxLength="11"
             android:inputType="phone"
             android:drawableStart="@drawable/ic_telephone"
@@ -80,45 +80,6 @@
                 android:textSize="15sp"/>
 
         </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp"
-            android:background="@color/black"/>
-
-        <!--输入密码-->
-        <EditText
-            android:id="@+id/register_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/register_password"
-            android:maxLength="20"
-            android:inputType="textPassword"
-            android:drawableStart="@drawable/ic_password"
-            android:drawablePadding="16dp"
-            android:background="@null"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="@color/black"/>
-
-        <!--注册按钮-->
-        <Button
-            android:id="@+id/register"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:background="@color/colorPrimary"
-            android:onClick="register"
-            android:text="@string/register"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
-
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

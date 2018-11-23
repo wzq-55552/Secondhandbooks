@@ -10,11 +10,12 @@
 
     <android.support.v7.widget.Toolbar
         app:title="申请信息"
+        android:id="@+id/msg_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         app:navigationIcon="?attr/homeAsUpIndicator"
-        android:onClick="back"/>
+        />
 
     <EditText
         android:id="@+id/msgactivity_book_name"

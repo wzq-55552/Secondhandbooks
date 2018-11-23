@@ -19,6 +19,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,6 +34,8 @@ import com.example.hasee.second_handbooks.nav_item_activity.SystemSetupActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -169,6 +172,33 @@ public class MainActivity extends AppCompatActivity {
             default:
         }
         return true;
+    }
+
+//    按钮按下判断
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        按下返回键调用双击判断函数
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            ExitByTwoClick();
+        }
+        return false;
+    }
+
+//    双击判断函数
+    private static Boolean isExit = false;
+    private void ExitByTwoClick() {
+        Timer tExit = null;
+        if (!isExit) {
+            Toast.makeText(MainActivity.this, "再按一次退出", Toast.LENGTH_SHORT).show();
+            tExit.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    isExit = false;
+                }
+            }, 2000);
+        } else {
+            finish();
+        }
     }
 
     //点击首页悬浮按钮跳转AddMsgActivity

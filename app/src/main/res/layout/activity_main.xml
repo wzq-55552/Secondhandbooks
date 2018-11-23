@@ -31,9 +31,9 @@
                     android:background="@drawable/main_toolbar"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginRight="30dp"
+                    android:layout_marginEnd="30dp"
                     android:paddingLeft="10dp"
-                    android:drawableLeft="@android:drawable/ic_menu_search"
+                    android:drawableStart="@android:drawable/ic_menu_search"
                     android:drawablePadding="-45dp"/>
 
             </android.support.v7.widget.Toolbar>

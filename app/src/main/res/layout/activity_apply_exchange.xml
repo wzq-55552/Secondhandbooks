@@ -17,7 +17,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:navigationIcon="?attr/homeAsUpIndicator"
-            android:onClick="back"/>
+            android:id="@+id/apply_exchange__toolbar"/>
 
     </android.support.design.widget.AppBarLayout>
 

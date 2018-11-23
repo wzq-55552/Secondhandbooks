@@ -13,11 +13,10 @@
         <android.support.v7.widget.Toolbar
             app:navigationIcon="?attr/homeAsUpIndicator"
             app:title="我提供的书籍"
-            android:id="@+id/myexchange_message_toolbar"
+            android:id="@+id/my_exchange_message_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
-            android:onClick="back"
             />
 
 

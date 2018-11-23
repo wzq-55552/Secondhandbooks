@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
         app:navigationIcon="?attr/homeAsUpIndicator"
-        android:onClick="back" />
+        android:id="@+id/change_number_toolbar" />
 
     <EditText
         android:padding="5dp"

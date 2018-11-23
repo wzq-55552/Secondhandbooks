@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
         app:navigationIcon="?attr/homeAsUpIndicator"
-        android:onClick="back"/>
+        android:id="@+id/login_toolbar"/>
 
     <!-- Login progress -->
     <ProgressBar

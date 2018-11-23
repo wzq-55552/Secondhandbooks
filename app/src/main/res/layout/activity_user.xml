@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         app:navigationIcon="?attr/homeAsUpIndicator"
-        android:onClick="back"/>
+        />
 
 
 <LinearLayout

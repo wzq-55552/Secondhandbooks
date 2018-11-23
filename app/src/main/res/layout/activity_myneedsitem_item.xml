@@ -13,11 +13,12 @@
 
         <android.support.v7.widget.Toolbar
             app:title="详情"
+            android:id="@+id/myneedsitem_item_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
             app:navigationIcon="?attr/homeAsUpIndicator"
-            android:onClick="back"/>
+            />
 
         <RelativeLayout
             android:layout_margin="24dp"

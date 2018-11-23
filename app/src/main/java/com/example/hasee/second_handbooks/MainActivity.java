@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         //Tab与ViewPager绑定
         tab.setupWithViewPager(mVp);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);//传入
         ActionBar actionBar = getSupportActionBar();//获得实例，ActionBar实例可以用来代替Toolbar
         NavigationView navView = (NavigationView)findViewById(R.id.na_view);

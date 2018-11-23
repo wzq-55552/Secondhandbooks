@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
         app:navigationIcon="?attr/homeAsUpIndicator"
-        android:onClick="back" />
+        android:id="@+id/perfect_information_toolbar"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"

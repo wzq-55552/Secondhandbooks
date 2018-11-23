@@ -23,7 +23,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="24dp"
         android:background="@color/white"
-        android:hint="@string/input_number"
+        android:hint="输入学号（之后不可修改）"
         android:inputType="number"
         android:maxLength="13"/>
 

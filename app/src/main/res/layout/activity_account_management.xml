@@ -32,13 +32,13 @@
             android:textSize="18sp" />
 
         <TextView
+            android:layout_marginRight="8dp"
             android:id="@+id/user_number_show"
             android:textSize="18sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
-            android:text="@string/user_number_show" />
+            />
 
     </RelativeLayout>
 

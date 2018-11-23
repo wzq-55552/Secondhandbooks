@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class account_management extends AppCompatActivity {
 
@@ -14,6 +16,9 @@ public class account_management extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_management);
+
+        TextView textView_number = findViewById(R.id.user_number_show);
+        //textView_number.setText();这里调用户信息显示
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.account_management_toolbar);
         setSupportActionBar(toolbar);//获得ToolBar实例
@@ -38,9 +43,7 @@ public class account_management extends AppCompatActivity {
 
     //修改学号
     public void change_number(View view) {
-        Intent intent = new Intent(account_management.this,change_number.class);
-        startActivity(intent);
-        finish();
+        Toast.makeText(account_management.this,"不可修改",Toast.LENGTH_SHORT);
     }
 
 

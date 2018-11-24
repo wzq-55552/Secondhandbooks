@@ -1,5 +1,6 @@
 package com.example.hasee.second_handbooks.nav_item_activity;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,6 +29,8 @@ public class WeActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case android.R.id.home://点击了返回，结束该活动，返回上一个活动
+                Intent intent =new Intent(WeActivity.this,SystemSetupActivity.class);
+                startActivity(intent);
                 finish();
                 return true;
         }

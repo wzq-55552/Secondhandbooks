@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 public class change_password extends AppCompatActivity {
 
@@ -20,6 +21,14 @@ public class change_password extends AppCompatActivity {
         if (actionBar!=null){
             actionBar.setDisplayHomeAsUpEnabled(true);//菜单，默认图片返回图片
         }
+
+        Button button = (Button)findViewById(R.id.change_password_button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     @Override
@@ -32,8 +41,5 @@ public class change_password extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    //提交修改的密码
-    public void sure(View view) {
-        finish();
-    }
+
 }

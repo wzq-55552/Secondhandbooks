@@ -40,6 +40,11 @@ public class SystemSetupActivity extends AppCompatActivity {
     }
 
 
+    //个性设置
+    public void setting(View view){
+
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){

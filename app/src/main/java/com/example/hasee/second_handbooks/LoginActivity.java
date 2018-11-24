@@ -72,7 +72,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Toolbar toolbar = (Toolbar)findViewById(R.id.login_toolbar);
+        Toolbar toolbar = findViewById(R.id.login_toolbar);
         setSupportActionBar(toolbar);//获得ToolBar实例
         ActionBar actionBar = getSupportActionBar();
         if (actionBar!=null){
@@ -80,10 +80,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
 
         // Set up the login form.
-        mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
+        mEmailView = findViewById(R.id.email);
         populateAutoComplete();
 
-        mPasswordView = (EditText) findViewById(R.id.password);
+        mPasswordView = findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
@@ -95,7 +95,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             }
         });
 
-        Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
+        Button mEmailSignInButton = findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -360,7 +360,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
 
     //跳转注册页面
-    public void user_registration(View view) {
+    public void user_register(View view) {
         Intent intent = new Intent(LoginActivity.this, register.class);
         startActivity(intent);
         finish();
@@ -372,8 +372,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         startActivity(intent);
         finish();
     }
-
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

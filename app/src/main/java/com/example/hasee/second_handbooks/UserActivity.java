@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import java.io.File;
 
@@ -25,9 +26,9 @@ public class UserActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user);
+        setContentView(R.layout.user);
 
-        Toolbar toolbar = (Toolbar)findViewById(R.id.users_toolbar);
+        Toolbar toolbar = findViewById(R.id.users_toolbar);
         setSupportActionBar(toolbar);//获得ToolBar实例
         ActionBar actionBar = getSupportActionBar();
         if (actionBar!=null){
@@ -35,7 +36,7 @@ public class UserActivity extends AppCompatActivity {
         }
 
         //点击头像进入手机图库
-        CircleImageView circleImageView = (CircleImageView) findViewById(R.id.users_icon_image);
+        CircleImageView circleImageView = findViewById(R.id.users_icon_image);
         circleImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,19 +100,39 @@ public class UserActivity extends AppCompatActivity {
     }
 
     //跳转修改昵称
-    public void change_name(View view) {
+    public void change_nickname(View view) {
         Intent intent = new Intent(UserActivity.this, change_nickname.class);
-        startActivity(intent);
+        startActivityForResult(intent, 0);
         finish();
     }
 
     //跳转修改性别
     public void change_sex(View view) {
         Intent intent = new Intent(UserActivity.this, change_sex.class);
-        startActivity(intent);
+        startActivityForResult(intent, 1);
         finish();
     }
 
+    @Override
+    public void onActivityReenter(int resultCode, Intent data) {
+        switch (resultCode) {
+            case 0:
+                if (resultCode == RESULT_OK) {
+                    TextView nickname_show = findViewById(R.id.user_nickname_show);
+                    String nickname = data.getStringExtra("nickname");
+                    nickname_show.setText(nickname);
+                }
+                break;
+            case 1:
+                if (resultCode == RESULT_OK) {
+                    TextView nickname_show = findViewById(R.id.user_sex_show);
+                    String nickname = data.getStringExtra("sex");
+                    nickname_show.setText(nickname);
+                }
+                break;
+            default:
+        }
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -122,4 +143,5 @@ public class UserActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

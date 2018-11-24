@@ -19,6 +19,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -38,8 +39,15 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
+
+    public static final String localhost = "http://07e5679b.ngrok.io";
 
     private DrawerLayout mDrawerLayout;
 
@@ -56,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         tab = (TabLayout)findViewById(R.id.tab);
         mVp = (ViewPager)findViewById(R.id.pager);
@@ -210,6 +219,8 @@ public class MainActivity extends AppCompatActivity {
     //跳转个人中心
     public void login(View view) {
         Intent intent = new Intent(MainActivity.this,UserActivity.class);
+        mDrawerLayout.closeDrawers();
         startActivity(intent);
     }
+
 }

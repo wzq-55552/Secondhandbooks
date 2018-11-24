@@ -79,7 +79,7 @@
         <activity android:name=".nav_item_activity.FeedbackActivity" />
         <activity android:name=".nav_item_activity.SystemSetupActivity" />
         <activity android:name=".nav_item_activity.WeActivity" />
-        <activity android:name=".change_phone" />
+        <activity android:name=".change_telephone" />
         <activity android:name=".change_password"></activity>
     </application>
 

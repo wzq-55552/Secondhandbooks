@@ -5,13 +5,10 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import java.net.URL;
 
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
@@ -21,24 +18,18 @@ import okhttp3.Response;
 
 import static com.example.hasee.second_handbooks.MainActivity.localhost;
 
-public class change_nickname extends AppCompatActivity {
+public class change_telephone extends AppCompatActivity {
 
-    private static final String URL = localhost +  "/user/change_nickname";
+    private static final String URL = localhost +  "/user/change_telephone";
 
-    private String nickname;
-
-    private static boolean isRegister;
+    private String telephone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.change_nickname);
+        setContentView(R.layout.change_telephone);
 
-        //判断是否注册调用
-        Intent intent = getIntent();
-        isRegister = intent.getBooleanExtra("isRegister", false);
-
-        Toolbar toolbar = findViewById(R.id.change_nickname_toolbar);
+        Toolbar toolbar = findViewById(R.id.change_phone_toolbar);
         setSupportActionBar(toolbar);//获得ToolBar实例
         ActionBar actionBar = getSupportActionBar();
         if (actionBar!=null){
@@ -46,21 +37,19 @@ public class change_nickname extends AppCompatActivity {
         }
     }
 
-    //获取欲修改的昵称给上一个活动
+    //获取欲修改的手机号给上一个活动
     public void submit(View view) {
-        EditText change_nickname = findViewById(R.id.change_nickname);
-        nickname = change_nickname.getText().toString();
-        if (isRegister == false) {
-            Change_nickname();
-        }
+        EditText change_telephone = findViewById(R.id.change_telephone);
+        telephone = change_telephone.getText().toString();
+        Change_telephone();
         Intent intent = new Intent();
-        intent.putExtra("nickname", nickname);
+        intent.putExtra("telephone", telephone);
         setResult(RESULT_OK, intent);
         finish();
     }
 
-//    修改昵称
-    private void Change_nickname() {
+    //    修改手机号
+    private void Change_telephone() {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -68,7 +57,7 @@ public class change_nickname extends AppCompatActivity {
                     OkHttpClient client = new OkHttpClient();
                     RequestBody requestBody = new FormBody.Builder()
                             .add("number", "1714080902110")//迟点读取文件实现
-                            .add("nickname", nickname)
+                            .add("telephone", telephone)
                             .build();
                     Request request = new Request.Builder()
                             .url(URL)
@@ -95,13 +84,15 @@ public class change_nickname extends AppCompatActivity {
             @Override
             public void run() {
                 if (data.equals("true")) {
-                    Toast.makeText(change_nickname.this, "修改昵称成功", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(change_telephone.this, "修改手机号成功", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(change_nickname.this, "修改昵称失败", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(change_telephone.this, "修改手机号失败", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

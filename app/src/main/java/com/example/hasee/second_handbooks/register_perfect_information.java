@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -14,21 +13,19 @@ import android.widget.Toast;
 
 import com.example.hasee.second_handbooks.db.User;
 
-import java.io.IOException;
-
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+import static com.example.hasee.second_handbooks.MainActivity.localhost;
+
 public class register_perfect_information extends AppCompatActivity {
 
-    private static final String TAG = "register_perfect_inform";
+    private static final String URL = localhost + "/user/register";
 
-    private static final String URL = "http://a447899372.vicp.cc:37091/user/register";
-
-    User user = new User();
+    private User user = new User();
 
 //    显示位置声明
     private TextView perfectNumber;
@@ -40,7 +37,7 @@ public class register_perfect_information extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.perfect_information);
 
-        Toolbar toolbar = (Toolbar)findViewById(R.id.perfect_information_toolbar);
+        Toolbar toolbar = findViewById(R.id.perfect_information_toolbar);
         setSupportActionBar(toolbar);//获得ToolBar实例
         ActionBar actionBar = getSupportActionBar();
         if (actionBar!=null){
@@ -48,7 +45,7 @@ public class register_perfect_information extends AppCompatActivity {
         }
 
         Intent intent = getIntent();
-        Long telephone = Long.parseLong(intent.getStringExtra("telephone"));
+        String telephone = intent.getStringExtra("telephone");
         String password = intent.getStringExtra("password");
         user.setTelephone(telephone);
         user.setPassword(password);
@@ -68,12 +65,14 @@ public class register_perfect_information extends AppCompatActivity {
 //    跳转改变昵称活动获取昵称
     public void perfect_nickname(View view) {
         Intent intent = new Intent(register_perfect_information.this, change_nickname.class);
+        intent.putExtra("isRegister", true);
         startActivityForResult(intent, 1);
     }
 
 //    跳转改变性别活动获取性别
     public void perfect_sex(View view) {
         Intent intent = new Intent(register_perfect_information.this, change_sex.class);
+        intent.putExtra("isRegister", true);
         startActivityForResult(intent, 2);
     }
 
@@ -83,20 +82,29 @@ public class register_perfect_information extends AppCompatActivity {
         switch (requestCode) {
             case 0:
                 if (resultCode == RESULT_OK) {
-                    String number = data.getStringExtra("number");
+                    String number = null;
+                    if (data != null) {
+                        number = data.getStringExtra("number");
+                    }
                     perfectNumber.setText(number);
-                    user.setNumber(Long.parseLong(number));
+                    user.setNumber(number);
                 }
                 break;
             case 1:
                 if (resultCode == RESULT_OK) {
-                    String nickname = data.getStringExtra("nickname");
+                    String nickname = null;
+                    if (data != null) {
+                        nickname = data.getStringExtra("nickname");
+                    }
                     perfectNickname.setText(nickname);
                     user.setNickname(nickname);
                 }
             case 2:
                 if (resultCode == RESULT_OK) {
-                    String sex = data.getStringExtra("sex");
+                    String sex = null;
+                    if (data != null) {
+                        sex = data.getStringExtra("sex");
+                    }
                     perfectSex.setText(sex);
                     user.setSex(sex);
                 }
@@ -106,7 +114,7 @@ public class register_perfect_information extends AppCompatActivity {
 
     //提交
     public void submit(View view) {
-        user.setHonesty(100L);
+        user.setHonesty("100");
         register();
     }
 
@@ -117,23 +125,24 @@ public class register_perfect_information extends AppCompatActivity {
                 try {
                     OkHttpClient client = new OkHttpClient();
                     RequestBody requestBody = new FormBody.Builder()
-                            .add("number", user.getNumber().toString())
-                            .add("telephone", user.getTelephone().toString())
+                            .add("number", user.getNumber())
+                            .add("telephone", user.getTelephone())
                             .add("nickname", user.getNickname())
                             .add("sex", user.getSex())
                             .add("password", user.getPassword())
-                            .add("honesty", user.getHonesty().toString())
+                            .add("honesty", user.getHonesty())
                             .build();
-                    Log.d(TAG, "run: " + requestBody.toString());
                     Request request = new Request.Builder()
                             .url(URL)
                             .post(requestBody)
                             .build();
                     Response response = client.newCall(request).execute();
-                    String data = response.body().string();
+                    String data = null;
+                    if (response.body() != null) {
+                        data = response.body().string();
+                    }
                     showResult(data);
                 } catch (Exception e) {
-                    Toast.makeText(register_perfect_information.this, "网络错误", Toast.LENGTH_SHORT).show();
                     e.printStackTrace();
                 }
 
@@ -143,15 +152,17 @@ public class register_perfect_information extends AppCompatActivity {
 
     //显示结果UI操作
     private void showResult(final String data) {
-        Log.d(TAG, "showResult: " + data);
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 if (data.equals("true")) {
-                    TextView nickname_show = (TextView) findViewById(R.id.user_nickname_show);
-                    TextView sex_show = (TextView) findViewById(R.id.user_sex_show);
-                    Toast.makeText(register_perfect_information.this, "注册成功", Toast.LENGTH_SHORT).show();
-                    user.change_user_information(nickname_show, sex_show);
+                    Toast.makeText(register_perfect_information.this, "注册成功,将会在一秒后跳转首页",
+                            Toast.LENGTH_LONG).show();
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     Intent intent = new Intent(register_perfect_information.this, MainActivity.class);
                     startActivity(intent);
                     finish();

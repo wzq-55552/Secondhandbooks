@@ -7,9 +7,9 @@ import android.widget.TextView;
  */
 public class User {
     //学号
-    private Long number;
+    private String number;
     //手机号
-    private Long telephone;
+    private String telephone;
     //昵称
     private String nickname;
     //性别
@@ -17,13 +17,13 @@ public class User {
     //密码
     private String password;
     //诚信度
-    private Long honesty;
+    private String honesty;
 
     public User() {
 
     }
 
-    public User(Long number, Long telephone, String nickname, String sex, String password, Long honesty) {
+    public User(String number, String telephone, String nickname, String sex, String password, String honesty) {
         this.number = number;
         this.telephone = telephone;
         this.nickname = nickname;
@@ -32,19 +32,19 @@ public class User {
         this.honesty = honesty;
     }
 
-    public Long getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(Long number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 
-    public Long getTelephone() {
+    public String getTelephone() {
         return telephone;
     }
 
-    public void setTelephone(Long telephone) {
+    public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
 
@@ -72,17 +72,12 @@ public class User {
         this.password = password;
     }
 
-    public Long getHonesty() {
+    public String getHonesty() {
         return honesty;
     }
 
-    public void setHonesty(Long honesty) {
+    public void setHonesty(String honesty) {
         this.honesty = honesty;
-    }
-
-    public void change_user_information(TextView nickname, TextView sex) {
-        nickname.setText(this.nickname);
-        sex.setText(this.sex);
     }
 }
 

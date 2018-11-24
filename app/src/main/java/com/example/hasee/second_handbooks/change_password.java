@@ -15,7 +15,7 @@ public class change_password extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.change_password);
 
-        Toolbar toolbar = (Toolbar)findViewById(R.id.change_password_toolbar);
+        Toolbar toolbar = findViewById(R.id.change_password_toolbar);
         setSupportActionBar(toolbar);//获得ToolBar实例
         ActionBar actionBar = getSupportActionBar();
         if (actionBar!=null){

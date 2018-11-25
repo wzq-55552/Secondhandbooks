@@ -13,7 +13,7 @@ public class account_management extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_account_management);
+        setContentView(R.layout.account_management);
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.account_management_toolbar);
         setSupportActionBar(toolbar);//获得ToolBar实例
@@ -46,7 +46,7 @@ public class account_management extends AppCompatActivity {
 
     //修改手机号
     public void change_phone(View view) {
-        Intent intent = new Intent(account_management.this,change_phone.class);
+        Intent intent = new Intent(account_management.this,change_telephone.class);
         startActivity(intent);
         finish();
     }

@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.hasee.second_handbooks.db.ExchangeMessage;
@@ -16,10 +18,14 @@ import java.util.List;
 
 //MyneedsMessageAdapter
 
-public class MyneedsMessageAdapter extends RecyclerView.Adapter <MyneedsMessageAdapter.ViewHolder> {
+public class MyneedsMessageAdapter extends RecyclerView.Adapter <RecyclerView.ViewHolder> {
+
+    private static final int TYPE_ITEM = 0;
+    private static final int TYPE_FOOTER = 1;
+    public boolean isLoadMore = false;
 
 
-    private Context mConext;
+    private Context mContext;
 
     private List<ExchangeMessage> mExchangeMessageList;
 
@@ -52,45 +58,96 @@ public class MyneedsMessageAdapter extends RecyclerView.Adapter <MyneedsMessageA
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        if (mConext == null) {
-            mConext = viewGroup.getContext();
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        if (mContext == null) {
+            mContext = viewGroup.getContext();
         }
 
 
-        View view = LayoutInflater.from(mConext).inflate(R.layout.myneedsmessage_item, viewGroup, false);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(-1, -2);
+        if (i == TYPE_ITEM) {
+        View view = LayoutInflater.from(mContext).inflate(R.layout.myneedsmessage_item, viewGroup, false);
         final ViewHolder holder = new ViewHolder(view);
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int position = holder.getAdapterPosition();
                 //ExchangeMessage message = mExchangeMessageList.get(position);
-                Intent intent = new Intent(mConext, MyneedsItemActivity.class);
+                Intent intent = new Intent(mContext, MyneedsItemActivity.class);
                 //intent.putExtra(MyneedsItemActivity.MESSAGE_BOOKNAME,message.getBook_name());
                 //intent.putExtra(MyneedsItemActivity.MESSAGE_TIME,message.getTime());
                 //intent.putExtra(MyneedsItemActivity.MESSAGE_LOCATION,message.getLocation());
                 //intent.putExtra(MyneedsItemActivity.MESSAGE_REMARK,message.getRemark());
-                mConext.startActivity(intent);
+                mContext.startActivity(intent);
             }
         });
 
-
         return holder;
+        }
+
+
+        final ProgressBar bar = new ProgressBar(mContext);
+        bar.setLayoutParams(lp);
+        ProgressViewHoler barViewHolder = new ProgressViewHoler(bar);
+        return barViewHolder;
     }
 
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
+        if (viewHolder instanceof ViewHolder) {
             ExchangeMessage exchangeMessage = mExchangeMessageList.get(i);
             //viewHolder.Book_img.setImageResource(exchangeMessage.getBook_image_id());
-            viewHolder.Book_name.setText(exchangeMessage.getBook_name());
-            viewHolder.Change_time.setText(exchangeMessage.getTime());
-            viewHolder.Change_location.setText(exchangeMessage.getLocation());
+            ((ViewHolder)viewHolder).Book_name.setText(exchangeMessage.getBook_name());
+            ((ViewHolder)viewHolder).Change_time.setText(exchangeMessage.getTime());
+            ((ViewHolder)viewHolder).Change_location.setText(exchangeMessage.getLocation());
+        }
     }
 
     @Override
     public int getItemCount() {
-            return mExchangeMessageList.size();
+        if (isLoadMore) {
+            return mExchangeMessageList.size() + 1;
+        }
+        return mExchangeMessageList.size();
+    }
+
+
+    @Override
+    public int getItemViewType(int position) {
+        if (position + 1 == getItemCount() && isLoadMore) {
+            return TYPE_FOOTER;
+        }
+        return TYPE_ITEM;
+    }
+
+
+    public static class ProgressViewHoler extends RecyclerView.ViewHolder {
+        public ProgressBar bar;
+
+        public ProgressViewHoler(View itemView) {
+            super(itemView);
+            bar = (ProgressBar) itemView;
+        }
+    }
+
+
+    /*public void addItem(List<ExchangeMessage> newDatas) {
+        newDatas.addAll(mExchangeMessageList);
+        mExchangeMessageList.removeAll(mExchangeMessageList);
+        mExchangeMessageList.addAll(newDatas);
+        notifyDataSetChanged();
+    }*/
+
+    public void addMoreItem(List<ExchangeMessage> newData) {
+        mExchangeMessageList.addAll(newData);
+        isLoadMore = false;
+        notifyDataSetChanged();
+    }
+
+    public void startLoad() {
+        isLoadMore = true;
+        notifyDataSetChanged();
     }
 
 

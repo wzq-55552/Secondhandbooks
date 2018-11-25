@@ -2,6 +2,7 @@ package com.example.hasee.second_handbooks;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -38,6 +39,8 @@ public class MyFragment01 extends Fragment {
 
     private SwipeRefreshLayout swipeRefreshLayout;
 
+    private int lastVisibleItem;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -46,10 +49,14 @@ public class MyFragment01 extends Fragment {
         initMessages();
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.fragment01_recycler_view);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, true);//每一行有1个元素
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, true);//每一行有1个元素
         recyclerView.setLayoutManager(layoutManager);
         adapter = new ExchangeMeAdapter(exchangeMessagesList);
         recyclerView.setAdapter(adapter);
+
+        //设置进去后显示第一个item,也是显示底部
+        recyclerView.scrollToPosition(exchangeMessagesList.size()-1);
+
 
         //刷新
         swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.fragment01_swipe_refresh);
@@ -60,6 +67,41 @@ public class MyFragment01 extends Fragment {
                 refreshMessages();
             }
         });
+
+
+
+        //上拉加载更多
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                if(swipeRefreshLayout.isRefreshing()) return;
+                if (newState == RecyclerView.SCROLL_STATE_IDLE && lastVisibleItem == adapter.getItemCount() - 1) {
+                    adapter.startLoad();
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            List<ExchangeMessage> newDatas = new ArrayList<ExchangeMessage>();
+                            for (int i = 0; i < 3; i++) {
+                                Random random = new Random();
+                                int index = random.nextInt(Messages.length);
+                                newDatas.add(Messages[index]);
+                            }
+                            adapter.addMoreItem(newDatas);
+                        }
+                    }, 5000);
+                }
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                lastVisibleItem = layoutManager.findLastVisibleItemPosition();
+            }
+        });
+
+
+
         return view;
     }
 
@@ -79,7 +121,7 @@ public class MyFragment01 extends Fragment {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(2000);//停留2秒
+                    Thread.sleep(3000);//停留2秒
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

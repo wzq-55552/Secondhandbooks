@@ -2,6 +2,7 @@ package com.example.hasee.second_handbooks;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -18,6 +19,7 @@ import com.jauker.widget.BadgeView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 
 public class Fragment1Myapply extends Fragment {
@@ -32,6 +34,8 @@ public class Fragment1Myapply extends Fragment {
 
     private APCAdapter adapter;
 
+    private int lastVisibleItem;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -40,7 +44,7 @@ public class Fragment1Myapply extends Fragment {
         init();
 
         RecyclerView recyclerView=(RecyclerView)view.findViewById(R.id.myapply_recyclerview);
-        LinearLayoutManager layoutManager=new LinearLayoutManager(mContext);
+        final LinearLayoutManager layoutManager=new LinearLayoutManager(mContext);
         recyclerView.setLayoutManager(layoutManager);
         adapter=new APCAdapter(exchangeMessageList);
         recyclerView.setAdapter(adapter);
@@ -54,7 +58,37 @@ public class Fragment1Myapply extends Fragment {
                 refreshAPC();
             }
         });
-        //MsgSetTop();
+
+        //上拉加载更多
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                if(swipeRefreshLayout.isRefreshing()) return;
+                if (newState == RecyclerView.SCROLL_STATE_IDLE && lastVisibleItem == adapter.getItemCount() - 1) {
+                    adapter.startLoad();
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            List<ExchangeMessage> newDatas = new ArrayList<ExchangeMessage>();
+                            ExchangeMessage a=new ExchangeMessage("例子1","54321","大约在冬季","没有");
+                            newDatas.add(a);
+                            newDatas.add(a);
+                            newDatas.add(a);
+                            adapter.addMoreItem(newDatas);
+                        }
+                    }, 5000);
+                }
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                lastVisibleItem = layoutManager.findLastVisibleItemPosition();
+            }
+        });
+
+
         return view;
     }
 
@@ -78,7 +112,7 @@ public class Fragment1Myapply extends Fragment {
             @Override
             public void run() {
                 try{
-                    Thread.sleep(2000);
+                    Thread.sleep(3000);
                 }catch (InterruptedException e){
                     e.printStackTrace();
                 }

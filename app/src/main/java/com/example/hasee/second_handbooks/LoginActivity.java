@@ -5,21 +5,14 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
-import android.os.Handler;
-import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
-
-
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
-
 
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
@@ -27,13 +20,15 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+import static com.example.hasee.second_handbooks.MainActivity.localhost;
+
 
 /**
  *手机号为账号，登陆界面，还有登陆后的界面，登陆前界面
  */
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String URL = "";
+    private static final String URL =  localhost + "/user/login";
 
     // 登陆按钮
     Button logbtn;
@@ -50,9 +45,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
 
         // 获取控件
-        telephone = (EditText) findViewById(R.id.telephone);
-        password = (EditText) findViewById(R.id.password);
-        logbtn = (Button) findViewById(R.id.login_button);
+        telephone = findViewById(R.id.telephone);
+        password = findViewById(R.id.password);
+        logbtn = findViewById(R.id.login_button);
 
 
         // 设置按钮监听器
@@ -101,15 +96,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 if (response.body() != null) {
                                     data = response.body().string();
                                 }
-                                if (data.equals("true")){
-                                    dialog.dismiss();
-                                    Intent intent  = new Intent(LoginActivity.this,UserActivity.class);
-                                    startActivity(intent);
-                                    finish();
-                                }else{
-                                    dialog.dismiss();
-                                    Toast.makeText(getBaseContext(),"密码错误或者该手机号还未注册！",Toast.LENGTH_SHORT).show();
-                                }
+                                showResult(data);
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -122,10 +109,27 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
+    //显示结果UI操作
+    private void showResult(final String data) {
+        dialog.dismiss();
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if (data.equals("true")) {
+                    Intent intent  = new Intent(LoginActivity.this,UserActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Toast.makeText(LoginActivity.this,"密码错误或者该手机号还未注册！",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
 
     // 检测网络
     private boolean checkNetwork() {
         ConnectivityManager connManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        assert connManager != null;
         if (connManager.getActiveNetworkInfo() != null) {
             return connManager.getActiveNetworkInfo().isAvailable();
         }

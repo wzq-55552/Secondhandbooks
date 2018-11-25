@@ -1,17 +1,14 @@
 package com.example.hasee.second_handbooks;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import java.net.URL;
 
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
@@ -50,7 +47,7 @@ public class change_nickname extends AppCompatActivity {
     public void submit(View view) {
         EditText change_nickname = findViewById(R.id.change_nickname);
         nickname = change_nickname.getText().toString();
-        if (isRegister == false) {
+        if (!isRegister) {
             Change_nickname();
         } else {
             Intent intent = new Intent();

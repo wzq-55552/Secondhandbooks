@@ -22,7 +22,6 @@ public class change_password extends AppCompatActivity {
 
     private static final String URL = localhost +  "/user/change_password";
 
-    private String original_password;
     private String change_password;
 
     //UI声明
@@ -58,7 +57,7 @@ public class change_password extends AppCompatActivity {
 
     //获取欲修改的昵称给上一个活动
     public void submit(View view) {
-        original_password = original_password_view.getText().toString();
+        String original_password = original_password_view.getText().toString();
         change_password = change_password_view.getText().toString();
         if (!isOriginalPasswordValid(original_password)) {
             Toast.makeText(change_password.this, "原密码错误", Toast.LENGTH_SHORT).show();

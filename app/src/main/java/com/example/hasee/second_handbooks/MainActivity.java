@@ -2,35 +2,25 @@ package com.example.hasee.second_handbooks;
 
 
 import android.content.Intent;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.KeyEvent;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-
 import com.example.hasee.second_handbooks.nav_item_activity.MycollectionActivity;
 import com.example.hasee.second_handbooks.nav_item_activity.RecordActivity;
-import com.example.hasee.second_handbooks.nav_item_activity.RecordAdapter;
 import com.example.hasee.second_handbooks.nav_item_activity.SystemSetupActivity;
 
 import java.util.ArrayList;
@@ -38,26 +28,11 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import de.hdodenhof.circleimageview.CircleImageView;
-import okhttp3.FormBody;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-
 public class MainActivity extends AppCompatActivity {
 
-    public static final String localhost = "https://0fe5e943.ngrok.io";
+    public static final String localhost = "http://a447899372.vicp.cc:37091";
 
     private DrawerLayout mDrawerLayout;
-
-    private TabLayout tab;
-
-    private ViewPager mVp;
-
-    private List<String> titles;
-
-    private List<Fragment> data;
 
 
     @Override
@@ -65,17 +40,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
-        tab = (TabLayout)findViewById(R.id.tab);
-        mVp = (ViewPager)findViewById(R.id.pager);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
+        TabLayout tab = findViewById(R.id.tab);
+        ViewPager mVp = findViewById(R.id.pager);
 
         //标题
-        titles = new ArrayList<>();
+        List<String> titles = new ArrayList<>();
         titles.add("主页");
         titles.add("我的");
 
         //数据源
-        data  = new ArrayList<>();
+        List<Fragment> data = new ArrayList<>();
         data.add(new MyFragment01());
         data.add(new MyFragment02());
 
@@ -86,15 +61,15 @@ public class MainActivity extends AppCompatActivity {
         tab.addTab(tab.newTab().setText(titles.get(0)));
         tab.addTab(tab.newTab().setText(titles.get(1)));
 
-        mVpAdapter adapter = new mVpAdapter(getSupportFragmentManager(),titles,data);
+        mVpAdapter adapter = new mVpAdapter(getSupportFragmentManager(), titles, data);
         mVp.setAdapter(adapter);
         //Tab与ViewPager绑定
         tab.setupWithViewPager(mVp);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.main_toolbar);
+        Toolbar toolbar = findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);//传入
         ActionBar actionBar = getSupportActionBar();//获得实例，ActionBar实例可以用来代替Toolbar
-        NavigationView navView = (NavigationView)findViewById(R.id.na_view);
+        NavigationView navView = findViewById(R.id.na_view);
 
         if (actionBar!=null){
             actionBar.setDisplayHomeAsUpEnabled(true);//显示
@@ -162,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //搜索按钮监听
-        Button search = (Button) findViewById(R.id.main_search);
+        Button search = findViewById(R.id.main_search);
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

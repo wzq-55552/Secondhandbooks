@@ -45,11 +45,12 @@ public class change_sex extends AppCompatActivity {
         sex = "男";
         if (!isRegister) {
             Change_sex();
+        } else {
+            Intent intent = new Intent();
+            intent.putExtra("sex", sex);
+            setResult(RESULT_OK, intent);
+            finish();
         }
-        Intent intent = new Intent();
-        intent.putExtra("sex", sex);
-        setResult(RESULT_OK, intent);
-        finish();
     }
 
 
@@ -58,11 +59,12 @@ public class change_sex extends AppCompatActivity {
         sex = "女";
         if (!isRegister) {
             Change_sex();
+        } else {
+            Intent intent = new Intent();
+            intent.putExtra("sex", sex);
+            setResult(RESULT_OK, intent);
+            finish();
         }
-        Intent intent = new Intent();
-        intent.putExtra("sex", sex);
-        setResult(RESULT_OK, intent);
-        finish();
     }
 
 //    性别保密
@@ -70,11 +72,12 @@ public class change_sex extends AppCompatActivity {
         sex = "保密";
         if (!isRegister) {
             Change_sex();
+        } else {
+            Intent intent = new Intent();
+            intent.putExtra("sex", sex);
+            setResult(RESULT_OK, intent);
+            finish();
         }
-        Intent intent = new Intent();
-        intent.putExtra("sex", sex);
-        setResult(RESULT_OK, intent);
-        finish();
     }
 
 //    修改性别
@@ -113,6 +116,10 @@ public class change_sex extends AppCompatActivity {
             public void run() {
                 if (data.equals("true")) {
                     Toast.makeText(change_sex.this, "修改性别成功", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent();
+                    intent.putExtra("sex", sex);
+                    setResult(RESULT_OK, intent);
+                    finish();
                 } else {
                     Toast.makeText(change_sex.this, "修改性别失败", Toast.LENGTH_SHORT).show();
                 }

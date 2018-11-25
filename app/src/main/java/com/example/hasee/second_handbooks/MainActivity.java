@@ -47,7 +47,7 @@ import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String localhost = "http://07e5679b.ngrok.io";
+    public static final String localhost = "https://0fe5e943.ngrok.io";
 
     private DrawerLayout mDrawerLayout;
 

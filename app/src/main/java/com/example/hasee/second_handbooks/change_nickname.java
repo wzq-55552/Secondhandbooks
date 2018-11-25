@@ -52,11 +52,13 @@ public class change_nickname extends AppCompatActivity {
         nickname = change_nickname.getText().toString();
         if (isRegister == false) {
             Change_nickname();
+        } else {
+            Intent intent = new Intent();
+            intent.putExtra("nickname", nickname);
+            setResult(RESULT_OK, intent);
+            finish();
         }
-        Intent intent = new Intent();
-        intent.putExtra("nickname", nickname);
-        setResult(RESULT_OK, intent);
-        finish();
+
     }
 
 //    修改昵称
@@ -96,6 +98,10 @@ public class change_nickname extends AppCompatActivity {
             public void run() {
                 if (data.equals("true")) {
                     Toast.makeText(change_nickname.this, "修改昵称成功", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent();
+                    intent.putExtra("nickname", nickname);
+                    setResult(RESULT_OK, intent);
+                    finish();
                 } else {
                     Toast.makeText(change_nickname.this, "修改昵称失败", Toast.LENGTH_SHORT).show();
                 }

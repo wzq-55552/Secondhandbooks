@@ -42,10 +42,6 @@ public class change_telephone extends AppCompatActivity {
         EditText change_telephone = findViewById(R.id.change_telephone);
         telephone = change_telephone.getText().toString();
         Change_telephone();
-        Intent intent = new Intent();
-        intent.putExtra("telephone", telephone);
-        setResult(RESULT_OK, intent);
-        finish();
     }
 
     //    修改手机号
@@ -85,6 +81,10 @@ public class change_telephone extends AppCompatActivity {
             public void run() {
                 if (data.equals("true")) {
                     Toast.makeText(change_telephone.this, "修改手机号成功", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent();
+                    intent.putExtra("telephone", telephone);
+                    setResult(RESULT_OK, intent);
+                    finish();
                 } else {
                     Toast.makeText(change_telephone.this, "修改手机号失败", Toast.LENGTH_SHORT).show();
                 }

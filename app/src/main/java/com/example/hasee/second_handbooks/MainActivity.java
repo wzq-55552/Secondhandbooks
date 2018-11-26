@@ -10,7 +10,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
@@ -68,13 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);//传入
-        ActionBar actionBar = getSupportActionBar();//获得实例，ActionBar实例可以用来代替Toolbar
         NavigationView navView = findViewById(R.id.na_view);
-
-        if (actionBar!=null){
-            actionBar.setDisplayHomeAsUpEnabled(true);//显示
-            actionBar.setHomeAsUpIndicator(R.drawable.head1);//传入滑动菜单的按钮图标
-        }
 
         //滑动菜单的实现
         navView.setCheckedItem(R.id.nav_1);//默认选中
@@ -147,42 +140,26 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home://Toolbar按钮最左侧的按钮，就是滑动菜单的这个按钮默认都是这个id
-                mDrawerLayout.openDrawer(GravityCompat.START);//显示
-                break;
-            default:
-        }
-        return true;
-    }
-
-//    按钮按下判断
+//    双击退出程序
+    private static Boolean mBackKeyPressed = false;
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-//        按下返回键调用双击判断函数
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            ExitByTwoClick();
+        if (keyCode == KeyEvent.KEYCODE_BACK  && event.getAction() == KeyEvent.ACTION_DOWN) {
+            if (!mBackKeyPressed) {
+                Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+                mBackKeyPressed = true;
+                new Timer().schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        mBackKeyPressed = false;
+                    }
+                }, 2000);
+                return true;
+            } else {
+                finish();
+            }
         }
-        return false;
-    }
-
-//    双击判断函数
-    private static Boolean isExit = false;
-    private void ExitByTwoClick() {
-        Timer tExit = null;
-        if (!isExit) {
-            Toast.makeText(MainActivity.this, "再按一次退出", Toast.LENGTH_SHORT).show();
-            tExit.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    isExit = false;
-                }
-            }, 2000);
-        } else {
-            finish();
-        }
+        return super.onKeyDown(keyCode, event);
     }
 
     //点击首页悬浮按钮跳转AddMsgActivity
@@ -198,4 +175,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //打开侧滑菜单
+    public void open_drawer_layout(View view) {
+        mDrawerLayout.openDrawer(GravityCompat.START);
+    }
 }
